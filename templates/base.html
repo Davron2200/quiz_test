@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Quiz Admin Panel{% endblock %}</title>
+    <!-- Tailwind CSS CDN -->
+    <script>
+        const _tw_warn = console.warn;
+        console.warn = (...args) => { if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return; _tw_warn.apply(console, args); };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes shake-animation {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-2px) rotate(-1deg);
+            }
+
+            50% {
+                transform: translateX(2px) rotate(1deg);
+            }
+
+            75% {
+                transform: translateX(-2px) rotate(-1deg);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .shake-animation {
+            animation: shake-animation 0.3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <div class="flex h-screen overflow-hidden bg-slate-50 relative">
+        <!-- Sidebar Backdrop (Mobile only) -->
+        <div id="sidebarBackdrop" onclick="toggleSidebar()"
+            class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity duration-300 opacity-0">
+        </div>
+
+        <!-- Sidebar Premium -->
+        <aside id="sidebar"
+            class="fixed inset-y-0 left-0 w-72 bg-slate-900 border-r border-slate-800 text-slate-300 flex flex-col z-50 transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out shadow-2xl overflow-hidden shrink-0">
+            <div
+                class="absolute top-0 right-0 w-40 h-40 bg-indigo-500 rounded-full mix-blend-screen filter blur-[60px] opacity-10">
+            </div>
+
+            <!-- Mobile Close Button -->
+            <button onclick="toggleSidebar()"
+                class="lg:hidden absolute top-6 right-6 text-slate-400 hover:text-white transition-colors z-20">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+
+            <div class="p-8 relative z-10 border-b border-white/5">
+                <h2 class="text-2xl font-black flex items-center gap-3 text-white tracking-tighter">
+                    <div
+                        class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/40 flex items-center justify-center">
+                        <i class="fas fa-bolt text-sm text-white"></i>
+                    </div>
+                    QuizAdmin
+                </h2>
+            </div>
+
+            <nav class="flex-1 px-4 space-y-2 mt-8 relative z-10 overflow-y-auto custom-scrollbar">
+                <a href="{{ url_for('index') }}"
+                    class="flex items-center gap-4 px-5 py-4 rounded-2xl {% if active_page == 'dashboard' %}bg-white/10 text-white border border-white/10 shadow-lg{% else %}text-slate-400 hover:text-white hover:bg-white/5{% endif %} transition-all duration-300 group">
+                    <i
+                        class="fas fa-th-large {% if active_page == 'dashboard' %}text-indigo-400{% else %}group-hover:text-indigo-400{% endif %} transition-colors"></i>
+                    <span class="font-bold tracking-tight">Dashboard</span>
+                </a>
+                <a href="{{ url_for('units') }}"
+                    class="flex items-center gap-4 px-5 py-4 rounded-2xl {% if active_page == 'units' %}bg-white/10 text-white border border-white/10 shadow-lg{% else %}text-slate-400 hover:text-white hover:bg-white/5{% endif %} transition-all duration-300 group">
+                    <i
+                        class="fas fa-book-open {% if active_page == 'units' %}text-emerald-400{% else %}group-hover:text-emerald-400{% endif %} transition-colors"></i>
+                    <span class="font-bold tracking-tight">Mavzular</span>
+                </a>
+                <a href="{{ url_for('questions') }}"
+                    class="flex items-center gap-4 px-5 py-4 rounded-2xl {% if active_page == 'questions' %}bg-white/10 text-white border border-white/10 shadow-lg{% else %}text-slate-400 hover:text-white hover:bg-white/5{% endif %} transition-all duration-300 group">
+                    <i
+                        class="fas fa-question-circle {% if active_page == 'questions' %}text-purple-400{% else %}group-hover:text-purple-400{% endif %} transition-colors"></i>
+                    <span class="font-bold tracking-tight">Savollar</span>
+                </a>
+                <a href="{{ url_for('groups') }}"
+                    class="flex items-center gap-4 px-5 py-4 rounded-2xl {% if active_page == 'groups' %}bg-white/10 text-white border border-white/10 shadow-lg{% else %}text-slate-400 hover:text-white hover:bg-white/5{% endif %} transition-all duration-300 group">
+                    <i
+                        class="fas fa-graduation-cap {% if active_page == 'groups' %}text-indigo-400{% else %}group-hover:text-indigo-400{% endif %} transition-colors"></i>
+                    <span class="font-bold tracking-tight">Guruhlar</span>
+                </a>
+                <a href="{{ url_for('users') }}"
+                    class="flex items-center gap-4 px-5 py-4 rounded-2xl {% if active_page == 'users' %}bg-white/10 text-white border border-white/10 shadow-lg{% else %}text-slate-400 hover:text-white hover:bg-white/5{% endif %} transition-all duration-300 group">
+                    <i
+                        class="fas fa-users {% if active_page == 'users' %}text-blue-400{% else %}group-hover:text-blue-400{% endif %} transition-colors"></i>
+                    <span class="font-bold tracking-tight">Foydalanuvchilar</span>
+                </a>
+                <a href="{{ url_for('rating') }}"
+                    class="flex items-center gap-4 px-5 py-4 rounded-2xl {% if active_page == 'rating' %}bg-white/10 text-white border border-white/10 shadow-lg{% else %}text-slate-400 hover:text-white hover:bg-white/5{% endif %} transition-all duration-300 group">
+                    <i
+                        class="fas fa-trophy {% if active_page == 'rating' %}text-amber-400{% else %}group-hover:text-amber-400{% endif %} transition-colors"></i>
+                    <span class="font-bold tracking-tight">Reyting</span>
+                </a>
+                <a href="{{ url_for('attendance_list') }}"
+                    class="flex items-center gap-4 px-5 py-4 rounded-2xl {% if active_page == 'attendance' %}bg-white/10 text-white border border-white/10 shadow-lg{% else %}text-slate-400 hover:text-white hover:bg-white/5{% endif %} transition-all duration-300 group">
+                    <i
+                        class="fas fa-clipboard-check {% if active_page == 'attendance' %}text-emerald-400{% else %}group-hover:text-emerald-400{% endif %} transition-colors"></i>
+                    <span class="font-bold tracking-tight">Davomat</span>
+                </a>
+                <a href="{{ url_for('settings_page') }}"
+                    class="flex items-center gap-4 px-5 py-4 rounded-2xl {% if request.endpoint == 'settings_page' %}bg-white/10 text-white border border-white/10 shadow-lg{% else %}text-slate-400 hover:text-white hover:bg-white/5{% endif %} transition-all duration-300 group">
+                    <i
+                        class="fas fa-cog {% if request.endpoint == 'settings_page' %}text-slate-200{% else %}group-hover:text-slate-300{% endif %} transition-colors"></i>
+                    <span class="font-bold tracking-tight">Sozlamalar</span>
+                </a>
+            </nav>
+
+            <div class="p-6 mt-auto relative z-10 border-t border-white/5">
+                <a href="{{ url_for('logout') }}"
+                    class="flex items-center gap-4 px-5 py-4 rounded-2xl text-slate-500 hover:bg-rose-500/10 hover:text-rose-400 transition-all duration-300 group">
+                    <i class="fas fa-power-off group-hover:rotate-90 transition-transform duration-500"></i>
+                    <span class="font-bold">Chiqish</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-x-hidden overflow-y-auto bg-[#F8FAFC] flex flex-col relative w-full">
+            <header
+                class="bg-white/80 backdrop-blur-xl border-b border-slate-200 px-6 lg:px-10 py-5 flex justify-between items-center sticky top-0 z-30 shadow-sm">
+                <div class="flex items-center gap-4">
+                    <!-- Hamburger Menu Button -->
+                    <button onclick="toggleSidebar()"
+                        class="lg:hidden w-10 h-10 rounded-xl bg-slate-50 text-slate-600 flex items-center justify-center border border-slate-200 hover:bg-slate-100 transition-colors">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1
+                        class="text-xl lg:text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 tracking-tight">
+                        {% block header_title %}Admin Panel{% endblock %}
+                    </h1>
+                </div>
+                <div class="flex items-center gap-3 lg:gap-4">
+                    {% block header_actions %}{% endblock %}
+                </div>
+            </header>
+
+            <div class="p-4 lg:p-10 flex-1 w-full mx-auto">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <div
+                    class="mb-8 p-5 rounded-2xl backdrop-blur-md {% if category == 'error' %}bg-rose-50 border border-rose-200 text-rose-700{% else %}bg-emerald-50 border border-emerald-200 text-emerald-700{% endif %} flex items-center gap-4 animate-fade-in-up shadow-sm border-l-4 {% if category == 'error' %}border-l-rose-500{% else %}border-l-emerald-500{% endif %}">
+                    <div
+                        class="w-8 h-8 rounded-full flex items-center justify-center {% if category == 'error' %}bg-rose-100 text-rose-600{% else %}bg-emerald-100 text-emerald-600{% endif %}">
+                        <i class="fas {% if category == 'error' %}fa-times{% else %}fa-check{% endif %} text-xs"></i>
+                    </div>
+                    <span class="font-bold text-sm">{{ message }}</span>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                {% block main_content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const backdrop = document.getElementById('sidebarBackdrop');
+
+            if (sidebar.classList.contains('-translate-x-full')) {
+                // Open
+                sidebar.classList.remove('-translate-x-full');
+                backdrop.classList.remove('hidden');
+                setTimeout(() => {
+                    backdrop.classList.add('opacity-100');
+                }, 10);
+            } else {
+                // Close
+                sidebar.classList.add('-translate-x-full');
+                backdrop.classList.remove('opacity-100');
+                setTimeout(() => {
+                    backdrop.classList.add('hidden');
+                }, 300);
+            }
+        }
+    </script>
+    </div>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

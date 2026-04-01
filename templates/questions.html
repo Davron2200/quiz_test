@@ -1,0 +1,730 @@
+{% extends "base.html" %}
+{% set active_page = 'questions' %}
+
+{% block title %}Savollar | QuizAdmin{% endblock %}
+
+{% block header_title %}Savollar bazasi{% endblock %}
+
+{% block header_actions %}
+<button
+    onclick="document.getElementById('addQuestionModal').classList.remove('hidden'); document.getElementById('addQuestionModal').classList.add('flex')"
+    class="relative overflow-hidden group py-2.5 px-5 rounded-xl font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 shadow-[0_4px_15px_rgba(147,51,234,0.3)] hover:shadow-[0_6px_20px_rgba(147,51,234,0.4)] transition-all duration-300 transform hover:-translate-y-0.5">
+    <span class="relative z-10 flex items-center gap-2">
+        <i class="fas fa-plus-circle"></i> Yangi savol
+    </span>
+</button>
+{% endblock %}
+
+{% block main_content %}
+<!-- Filters & Import Section Premium -->
+<div
+    class="mb-8 bg-white/70 backdrop-blur-xl p-4 lg:p-6 rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.03)] border border-slate-100 relative overflow-hidden group">
+    <div class="absolute -right-20 -top-20 w-40 h-40 bg-purple-100 rounded-full blur-3xl opacity-60"></div>
+    <div class="absolute -left-20 -bottom-20 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-60"></div>
+
+    <div class="flex flex-col lg:flex-row gap-6 items-center justify-between relative z-10">
+        <div class="flex items-center gap-4 w-full lg:w-auto">
+            <div
+                class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shadow-sm border border-purple-100 shrink-0">
+                <i class="fas fa-filter"></i>
+            </div>
+            <form action="{{ url_for('questions') }}" method="GET" class="flex-1 lg:w-64">
+                <select name="unit_id"
+                    class="w-full pl-4 pr-10 py-2.5 bg-slate-50 border border-slate-200 text-slate-700 font-bold rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 cursor-pointer appearance-none transition-all hover:bg-slate-100 text-sm"
+                    onchange="this.form.submit()"
+                    style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394A3B8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
+                    <option value="">Barchasi (Aralash)</option>
+                    {% for level, group in units|groupby('level') %}
+                    <optgroup label="{{ level or 'Darajasiz' }}">
+                        {% for unit in group %}
+                        <option value="{{ unit.id }}" {% if current_unit_id==unit.id|string %}selected{% endif %}>
+                            {{ unit.number }}-dars: {{ unit.title }}
+                        </option>
+                        {% endfor %}
+                    </optgroup>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+
+        <!-- Excel import -->
+        <form action="{{ url_for('import_excel') }}" method="POST" enctype="multipart/form-data"
+            class="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto p-4 bg-emerald-50/50 border border-emerald-100 rounded-2xl hover:bg-emerald-50 transition-colors">
+            <div class="flex gap-2 w-full sm:w-auto">
+                <select id="import_level"
+                    class="flex-1 sm:w-24 px-3 py-2.5 border border-emerald-200 bg-white rounded-xl text-sm font-bold text-slate-700 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                    onchange="filterUnitsByLevel(this.value, 'import_unit_id', 'import_q_section_id')">
+                    <option value="">Lvl</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                </select>
+                <select id="import_unit_id" name="unit_id" required
+                    class="flex-[2] sm:w-48 px-3 py-2.5 border border-emerald-200 bg-white rounded-xl text-sm font-bold text-slate-700 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                    onchange="updateSectionSelect(this.value, 'import_q_section_id')">
+                    <option value="">Dars...</option>
+                </select>
+            </div>
+            <select id="import_q_section_id" name="section_id" required
+                class="w-full sm:w-40 px-3 py-2.5 border border-emerald-200 bg-white rounded-xl text-sm font-bold text-slate-700 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20">
+                <option value="">Bo'lim...</option>
+            </select>
+            <div
+                class="flex items-center w-full sm:w-auto border border-emerald-200 bg-white rounded-xl overflow-hidden shadow-sm">
+                <label
+                    class="cursor-pointer px-4 py-2.5 text-sm font-bold text-emerald-700 hover:bg-emerald-50 transition-colors flex items-center justify-center gap-2 w-full">
+                    <i class="fas fa-file-excel"></i>
+                    <span id="fileNameDisplay" class="max-w-[100px] truncate">Excel tanlash</span>
+                    <input type="file" name="excel_file" accept=".xlsx" required class="hidden"
+                        onchange="document.getElementById('fileNameDisplay').textContent = this.files[0] ? this.files[0].name : 'Excel tanlash'">
+                </label>
+            </div>
+            <button type="submit"
+                class="w-full sm:w-auto shadow-lg shadow-emerald-500/20 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-xl text-sm font-black transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
+                <i class="fas fa-upload"></i> Yuklash
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Level Tabs Premium -->
+<div class="mb-8 overflow-x-auto no-scrollbar -mx-4 px-4 pb-2 lg:mx-0 lg:px-0 lg:pb-0">
+    <div
+        class="flex gap-4 p-2 bg-slate-100/50 backdrop-blur-md rounded-2xl border border-slate-200/50 shadow-inner min-w-max lg:min-w-full">
+        <button onclick="filterByLevel('ALL')" id="tab-ALL"
+            class="level-tab px-6 py-3 rounded-xl font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 bg-white shadow-md text-indigo-600 border border-indigo-100 hover:scale-105 active-tab">
+            <i class="fas fa-th-large"></i> Barchasi
+        </button>
+        {% for level in ['A1', 'A2', 'B1', 'B2'] %}
+        <button onclick="filterByLevel('{{ level }}')" id="tab-{{ level }}"
+            class="level-tab px-8 py-3 rounded-xl font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 hover:bg-white/80 text-slate-500 
+            {% if level == 'A1' %}hover:text-emerald-500{% elif level == 'A2' %}hover:text-blue-500{% elif level == 'B1' %}hover:text-amber-500{% elif level == 'B2' %}hover:text-rose-500{% endif %}">
+            <span
+                class="w-2.5 h-2.5 rounded-full 
+                {% if level == 'A1' %}bg-emerald-400{% elif level == 'A2' %}bg-blue-400{% elif level == 'B1' %}bg-amber-400{% elif level == 'B2' %}bg-rose-400{% endif %}"></span>
+            {{ level }}
+        </button>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Accordion Table -->
+<div id="unitsContainer" class="space-y-6">
+    {% for unit in units %}
+    <!-- Unit Group (Accordion) -->
+    <div data-level="{{ unit.level or 'NONE' }}"
+        class="unit-card bg-white rounded-2xl lg:rounded-[2rem] shadow-lg shadow-slate-200/50 border border-slate-100 overflow-hidden transition-all duration-500 transform hover:shadow-xl hover:-translate-y-1">
+        <div onclick="toggleAccordion('unit-{{ unit.id }}')"
+            class="px-4 lg:px-8 py-4 lg:py-6 flex justify-between items-center cursor-pointer hover:bg-slate-50 transition-colors group">
+            <div class="flex items-center gap-3 lg:gap-5">
+                <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-xl lg:rounded-2xl flex items-center justify-center text-white shadow-lg transition-transform group-hover:scale-110
+                    {% if unit.level == 'A1' %}bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-emerald-200
+                    {% elif unit.level == 'A2' %}bg-gradient-to-br from-blue-400 to-blue-600 shadow-blue-200
+                    {% elif unit.level == 'B1' %}bg-gradient-to-br from-amber-400 to-amber-600 shadow-amber-200
+                    {% elif unit.level == 'B2' %}bg-gradient-to-br from-rose-400 to-rose-600 shadow-rose-200
+                    {% else %}bg-gradient-to-br from-indigo-500 to-purple-600 shadow-indigo-200{% endif %}">
+                    <span class="text-lg lg:text-xl font-black">{{ unit.number }}</span>
+                </div>
+                <div>
+                    <h3
+                        class="text-base lg:text-xl font-black text-slate-800 tracking-tight group-hover:text-indigo-600 transition-colors flex flex-wrap items-center gap-2">
+                        {{ unit.number }}-dars: {{ unit.title }}
+                        <span class="text-[9px] px-2 py-0.5 rounded-full font-black uppercase tracking-wider
+                            {% if unit.level == 'A1' %}bg-emerald-50 text-emerald-600 border border-emerald-100
+                            {% elif unit.level == 'A2' %}bg-blue-50 text-blue-600 border border-blue-100
+                            {% elif unit.level == 'B1' %}bg-amber-50 text-amber-600 border border-amber-100
+                            {% elif unit.level == 'B2' %}bg-rose-50 text-rose-600 border border-rose-100
+                            {% else %}bg-indigo-50 text-indigo-500 border border-indigo-100{% endif %}">
+                            {{ unit.level or '—' }}
+                        </span>
+                    </h3>
+                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest mt-0.5">
+                        <i class="fas fa-layer-group mr-1 text-slate-300"></i> {{ unit.sections|length }} ta bo'lim
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 lg:gap-4">
+                <a href="{{ url_for('sections', unit_id=unit.id) }}" onclick="event.stopPropagation();"
+                    class="hidden sm:flex w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-slate-50 text-slate-400 items-center justify-center hover:bg-slate-900 hover:text-white transition-all shadow-sm border border-slate-100"
+                    title="Bo'limlarni boshqarish">
+                    <i class="fas fa-tasks text-sm"></i>
+                </a>
+                <div id="icon-unit-{{ unit.id }}"
+                    onclick="event.stopPropagation(); toggleAccordion('unit-{{ unit.id }}');"
+                    class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 transform transition-transform duration-300 cursor-pointer hover:bg-slate-200">
+                    <i class="fas fa-chevron-down text-xs lg:text-sm"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sections List (Nested Accordion) -->
+        <div id="unit-{{ unit.id }}" class="hidden border-t border-slate-100 bg-slate-50/30 p-2 lg:p-4 space-y-3">
+            {% for section in unit.sections %}
+            <div class="bg-white rounded-xl lg:rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                <div onclick="toggleAccordion('section-{{ section.id }}')"
+                    class="px-4 lg:px-6 py-3 lg:py-4 flex justify-between items-center cursor-pointer hover:bg-slate-50 transition-colors">
+                    <div class="flex items-center gap-3 lg:gap-4">
+                        <div
+                            class="w-7 h-7 lg:w-8 lg:h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center text-xs lg:text-sm font-bold">
+                            {{ section.number }}
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-bold text-slate-700 text-xs lg:text-sm leading-tight">{{ section.title
+                                }}</span>
+                            {% set sec_q_count = questions_list|selectattr('section_id', 'equalto',
+                            section.id)|list|length %}
+                            <span class="text-[9px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">{{
+                                sec_q_count }} ta savol</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 lg:gap-3">
+                        <form action="{{ url_for('clear_section_questions', section_id=section.id) }}" method="POST"
+                            class="inline"
+                            onsubmit="event.stopPropagation(); return confirm('Diqqat! Ushbu bo\'limdagi BARCHA savollarni o\'chirishni xohlaysizmi? Bo\'limning o\'zi o\'chmaydi.');">
+                            <button type="submit" onclick="event.stopPropagation();"
+                                class="flex items-center gap-1.5 px-2 py-1 lg:px-3 lg:py-1.5 rounded-lg text-[9px] font-black uppercase tracking-wider text-rose-500 hover:bg-rose-50 border border-transparent hover:border-rose-100 transition-all active:scale-95 group/clear">
+                                <i class="fas fa-trash-alt group-hover/clear:shake-animation"></i>
+                                <span class="hidden sm:inline">Tozalash</span>
+                            </button>
+                        </form>
+                        <div id="icon-section-{{ section.id }}"
+                            onclick="event.stopPropagation(); toggleAccordion('section-{{ section.id }}');"
+                            class="text-slate-300 transform transition-transform duration-300 cursor-pointer p-2 hover:text-indigo-500">
+                            <i class="fas fa-chevron-down text-xs lg:text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Questions Table for Section -->
+                <div id="section-{{ section.id }}" class="hidden border-t border-slate-100">
+                    <div class="overflow-x-auto custom-scrollbar">
+                        <table class="min-w-full">
+                            <thead class="bg-slate-50/80">
+                                <tr>
+                                    <th
+                                        class="px-4 lg:px-6 py-3 text-center text-[10px] font-black text-slate-400 uppercase tracking-widest w-12">
+                                        №</th>
+                                    <th
+                                        class="px-4 lg:px-6 py-3 text-left text-[10px] font-black text-slate-400 uppercase tracking-widest min-w-[200px]">
+                                        Savol matni</th>
+                                    <th
+                                        class="px-3 lg:px-6 py-3 text-center text-[10px] font-black text-slate-400 uppercase tracking-widest w-16">
+                                        Vaqt</th>
+                                    <th
+                                        class="px-4 lg:px-6 py-3 text-right text-[10px] font-black text-slate-400 uppercase tracking-widest w-24">
+                                        Harakatlar</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-50">
+                                {% for q in questions_list if q.section_id == section.id %}
+                                <tr class="hover:bg-slate-50/50 transition-colors group">
+                                    <td class="px-4 lg:px-6 py-4 whitespace-nowrap text-center">
+                                        <span
+                                            class="text-xs font-black text-slate-400 group-hover:text-indigo-500 transition-colors">{{
+                                            loop.index }}</span>
+                                    </td>
+                                    <td class="px-4 lg:px-6 py-4">
+                                        <div class="flex flex-col">
+                                            <span class="text-xs lg:text-sm font-bold text-slate-700 leading-relaxed">{{
+                                                q.text }}</span>
+                                            <div class="flex gap-1.5 mt-2 flex-wrap">
+                                                {% for opt in q.options %}
+                                                <span
+                                                    class="text-[8px] lg:text-[9px] px-1.5 py-0.5 rounded {% if opt.is_correct %}bg-emerald-50 text-emerald-600 border border-emerald-100 font-black{% else %}bg-slate-50 text-slate-400 border border-slate-100 font-medium{% endif %}">
+                                                    {{ opt.text }}
+                                                </span>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-3 lg:px-6 py-4 whitespace-nowrap text-center">
+                                        <span class="text-xs font-black text-rose-500">{{ q.time_limit }}s</span>
+                                    </td>
+                                    <td class="px-4 lg:px-6 py-4 whitespace-nowrap text-right">
+                                        <div class="flex items-center justify-end gap-1.5 lg:gap-2">
+                                            {% set ns = namespace(correct_idx=0) %}
+                                            {% for opt in q.options %}{% if opt.is_correct %}{% set ns.correct_idx =
+                                            loop.index %}{% endif %}{% endfor %}
+                                            <button data-id="{{ q.id }}" data-unit-id="{{ q.unit_id }}"
+                                                data-section-id="{{ q.section_id|default(0) }}"
+                                                data-text="{{ q.text|tojson|forceescape }}"
+                                                data-time-limit="{{ q.time_limit }}"
+                                                data-correct-idx="{{ ns.correct_idx }}"
+                                                data-options="{{ q.options|tojson|forceescape }}"
+                                                onclick='openEditQuestionModal(this)'
+                                                class="w-7 h-7 lg:w-8 lg:h-8 flex items-center justify-center text-amber-500 hover:bg-amber-50 rounded-lg transition-colors">
+                                                <i class="fas fa-edit text-[10px] lg:text-xs"></i>
+                                            </button>
+                                            <form action="{{ url_for('delete_question', q_id=q.id) }}" method="POST"
+                                                class="inline"
+                                                onsubmit="return confirm('Rostan ham ushbu savolni o\'chirasizmi?');">
+                                                <button type="submit"
+                                                    class="w-7 h-7 lg:w-8 lg:h-8 flex items-center justify-center text-rose-500 hover:bg-rose-50 rounded-lg transition-colors">
+                                                    <i class="fas fa-trash-alt text-[10px] lg:text-xs"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <td colspan="4" class="px-6 py-8 text-center text-slate-300 italic text-[11px]">
+                                        Bo'limda savollar yo'q</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="py-10 text-center text-slate-400 bg-white/50 rounded-2xl border border-dashed border-slate-200">
+                <i class="fas fa-layer-group text-3xl mb-3 opacity-20"></i>
+                <p class="text-sm font-medium">Ushbu darsda hali bo'limlar yo'q</p>
+                <a href="{{ url_for('sections', unit_id=unit.id) }}"
+                    class="mt-4 inline-flex items-center text-indigo-600 font-bold text-xs hover:underline">
+                    Bo'lim qo'shish <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Modal Premium (Add) -->
+<div id="addQuestionModal"
+    class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm overflow-y-auto h-full w-full hidden z-50 items-center justify-center transition-all duration-300">
+    <div
+        class="relative w-full max-w-2xl mx-4 my-8 p-8 bg-white shadow-2xl rounded-3xl transform scale-100 border border-slate-100 overflow-hidden">
+        <div
+            class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-100 to-indigo-50 rounded-full blur-3xl -z-10 -mr-20 -mt-20">
+        </div>
+        <div class="absolute top-0 right-0 pt-6 pr-6">
+            <button type="button"
+                onclick="document.getElementById('addQuestionModal').classList.add('hidden'); document.getElementById('addQuestionModal').classList.remove('flex')"
+                class="text-slate-400 hover:text-slate-700 hover:bg-slate-100 p-2 rounded-full transition-colors flex items-center justify-center focus:outline-none">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+
+        <div>
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center shadow-inner">
+                    <i class="fas fa-pen-fancy text-2xl text-purple-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800">Savol Yaratish</h3>
+            </div>
+
+            <form action="{{ url_for('add_question') }}" method="POST" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="space-y-1.5">
+                        <label class="block text-sm font-bold text-slate-700 ml-1">Daraja</label>
+                        <select id="add_q_level"
+                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/50 text-slate-700 font-medium"
+                            onchange="filterUnitsByLevel(this.value, 'add_q_unit_id', 'add_q_section_id')">
+                            <option value="">Tanlang...</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="block text-sm font-bold text-slate-700 ml-1">Dars</label>
+                        <select id="add_q_unit_id" name="unit_id" required
+                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/50 text-slate-700 font-medium"
+                            onchange="updateSectionSelect(this.value, 'add_q_section_id')">
+                            <option value="">Tanlang...</option>
+                            {% for level, group in units|groupby('level') %}
+                            <optgroup label="{{ level or 'Darajasiz' }}">
+                                {% for unit in group %}
+                                <option value="{{ unit.id }}">{{ unit.number }}-dars: {{ unit.title }}</option>
+                                {% endfor %}
+                            </optgroup>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="block text-sm font-bold text-slate-700 ml-1">Bo'lim</label>
+                        <select id="add_q_section_id" name="section_id" required
+                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/50 text-slate-700 font-medium">
+                            <option value="">Avval darsni tanlang</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="block text-sm font-bold text-slate-700 ml-1">Vaqt (sek)</label>
+                        <input type="number" name="time_limit" value="30" required
+                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/50 text-slate-700 font-bold font-mono">
+                    </div>
+                </div>
+                <div class="space-y-1.5">
+                    <label class="block text-sm font-bold text-slate-700 ml-1">Savol matni</label>
+                    <textarea name="text" required rows="3" placeholder="Savol..."
+                        class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/50 text-slate-800 resize-none font-medium text-base"></textarea>
+                </div>
+                <div class="space-y-3">
+                    {% for i in range(1, 5) %}
+                    <div
+                        class="flex items-center gap-3 p-1.5 rounded-xl border border-slate-100 bg-slate-50/50 hover:border-emerald-200 transition-colors">
+                        <div
+                            class="flex items-center justify-center w-10 text-slate-400 font-bold bg-white h-full rounded border border-slate-100 py-2.5">
+                            {{ "ABCD"[i-1] }}</div>
+                        <input type="text" name="option_{{ i }}" placeholder="{{ i }}-variant..." {% if i <=2
+                            %}required{% endif %}
+                            class="flex-1 px-3 py-2.5 bg-transparent border-0 focus:outline-none text-slate-700 font-medium">
+                        <input type="radio" name="correct_option" value="{{ i }}" {% if i==1 %}required{% endif %}
+                            class="w-5 h-5 text-emerald-500 cursor-pointer mx-3">
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="flex justify-end gap-3 pt-6 border-t border-slate-100">
+                    <button type="button"
+                        onclick="document.getElementById('addQuestionModal').classList.add('hidden'); document.getElementById('addQuestionModal').classList.remove('flex')"
+                        class="px-6 py-3 bg-white text-slate-700 border border-slate-300 rounded-xl hover:bg-slate-50 font-bold transition-all">Bekor
+                        qilish</button>
+                    <button type="submit"
+                        class="px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl hover:from-purple-700 font-bold shadow-lg shadow-purple-500/30 transition-all">Saqlash</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal Premium -->
+<div id="editQuestionModal"
+    class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm overflow-y-auto h-full w-full hidden z-50 items-center justify-center transition-all duration-300">
+    <div
+        class="relative w-full max-w-2xl mx-4 my-8 p-8 bg-white shadow-2xl rounded-3xl transform scale-100 border border-slate-100 overflow-hidden">
+        <div
+            class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-amber-100 to-orange-50 rounded-full blur-3xl -z-10 -mr-20 -mt-20">
+        </div>
+        <div class="absolute top-0 right-0 pt-6 pr-6">
+            <button type="button"
+                onclick="document.getElementById('editQuestionModal').classList.add('hidden'); document.getElementById('editQuestionModal').classList.remove('flex')"
+                class="text-slate-400 hover:text-slate-700 hover:bg-slate-100 p-2 rounded-full transition-colors flex items-center justify-center focus:outline-none">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+
+        <div>
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center shadow-inner">
+                    <i class="fas fa-edit text-2xl text-amber-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800">Savolni Tahrirlash</h3>
+            </div>
+
+            <form id="editQuestionForm" action="" method="POST" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="space-y-1.5">
+                        <label class="block text-sm font-bold text-slate-700 ml-1">Daraja</label>
+                        <select id="edit_q_level"
+                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/50 text-slate-700 font-medium"
+                            onchange="filterUnitsByLevel(this.value, 'edit_q_unit_id', 'edit_q_section_id')">
+                            <option value="">Tanlang...</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="block text-sm font-bold text-slate-700 ml-1">Dars</label>
+                        <select id="edit_q_unit_id" name="unit_id" required
+                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/50 text-slate-700 font-medium"
+                            onchange="updateSectionSelect(this.value, 'edit_q_section_id')">
+                            {% for level, group in units|groupby('level') %}
+                            <optgroup label="{{ level or 'Darajasiz' }}">
+                                {% for unit in group %}
+                                <option value="{{ unit.id }}">{{ unit.number }}-dars: {{ unit.title }}</option>
+                                {% endfor %}
+                            </optgroup>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="block text-sm font-bold text-slate-700 ml-1">Bo'lim</label>
+                        <select id="edit_q_section_id" name="section_id" required
+                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/50 text-slate-700 font-medium">
+                            <option value="">Avval darsni tanlang</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="block text-sm font-bold text-slate-700 ml-1">Vaqt (sek)</label>
+                        <input type="number" id="edit_q_time_limit" name="time_limit" required
+                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/50 text-slate-700 font-bold font-mono">
+                    </div>
+                </div>
+                <div class="space-y-1.5">
+                    <label class="block text-sm font-bold text-slate-700 ml-1">Savol matni</label>
+                    <textarea id="edit_q_text" name="text" required rows="3"
+                        class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/50 text-slate-800 resize-none font-medium text-base"></textarea>
+                </div>
+                <div class="space-y-3">
+                    {% for i in range(1, 5) %}
+                    <div
+                        class="flex items-center gap-3 p-1.5 rounded-xl border border-slate-100 bg-slate-50/50 hover:border-emerald-200 transition-colors group">
+                        <div
+                            class="flex items-center justify-center w-10 text-slate-400 font-bold bg-white h-full rounded border border-slate-100 py-2.5">
+                            {{ "ABCD"[i-1] }}</div>
+                        <input type="text" id="edit_q_option_{{ i }}" name="option_{{ i }}"
+                            placeholder="{{ i }}-variant..."
+                            class="flex-1 px-3 py-2.5 bg-transparent border-0 focus:outline-none text-slate-700 font-medium">
+                        <input type="radio" id="edit_q_correct_{{ i }}" name="correct_option" value="{{ i }}"
+                            class="w-5 h-5 text-emerald-500 cursor-pointer mx-3">
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="flex justify-end gap-3 pt-6 border-t border-slate-100">
+                    <button type="button"
+                        onclick="document.getElementById('editQuestionModal').classList.add('hidden'); document.getElementById('editQuestionModal').classList.remove('flex')"
+                        class="px-6 py-3 bg-white text-slate-700 border border-slate-300 rounded-xl hover:bg-slate-50 font-bold transition-all">Bekor
+                        qilish</button>
+                    <button type="submit"
+                        class="px-8 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-xl hover:from-amber-700 font-bold shadow-lg shadow-amber-500/30 transition-all">Yangilash</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script id="unit-data" type="application/json">
+        {
+            "sections": {
+                {% for unit in units %}
+                "{{ unit.id }}": [
+                    {% for sec in unit.sections %}
+                    { "id": {{ sec.id }}, "title": {{ (sec.number | string + ". " + sec.title) | tojson }} }{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                ]{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            },
+            "levels": {
+                {% for unit in units %}
+                "{{ unit.id }}": {{ (unit.level or "")| tojson }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            },
+            "unitsByLevel": {
+                {% for level, group in units | groupby("level") %}
+                "{{ level or 'Darajasiz' }}": [
+                    {% for unit in group %}
+                    { "id": {{ unit.id }}, "number": {{ unit.number }}, "title": {{ unit.title | tojson }} }{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                ]{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            }
+        }
+    </script>
+<script>
+    const unitData = JSON.parse(document.getElementById('unit-data').textContent);
+    const unitSections = unitData.sections;
+    const unitLevels = unitData.levels;
+
+    function filterByLevel(level) {
+        const units = document.querySelectorAll('.unit-card');
+        const tabs = document.querySelectorAll('.level-tab');
+
+        // Update tabs styling
+        tabs.forEach(tab => {
+            tab.classList.remove('bg-white', 'shadow-md', 'text-indigo-600', 'border-indigo-100', 'scale-105', 'active-tab');
+            tab.classList.add('text-slate-500', 'hover:text-indigo-500');
+        });
+
+        const activeTab = document.getElementById('tab-' + level);
+        if (activeTab) {
+            activeTab.classList.remove('text-slate-500', 'hover:text-indigo-500');
+            activeTab.classList.add('bg-white', 'shadow-md', 'text-indigo-600', 'border-indigo-100', 'scale-105', 'active-tab');
+        }
+
+        // Filter units
+        units.forEach(unit => {
+            if (level === 'ALL' || unit.getAttribute('data-level') === level) {
+                unit.style.display = 'block';
+                // Slide in animation
+                unit.style.opacity = '0';
+                unit.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    unit.style.transition = 'all 0.5s ease';
+                    unit.style.opacity = '1';
+                    unit.style.transform = 'translateY(0)';
+                }, 50);
+            } else {
+                unit.style.display = 'none';
+            }
+        });
+
+        // Save active level
+        localStorage.setItem('activeLevel', level);
+    }
+
+    // Sahifa yuklanganda oxirgi darajani tiklash
+    window.addEventListener('load', () => {
+        const savedLevel = localStorage.getItem('activeLevel') || 'ALL';
+        filterByLevel(savedLevel);
+    });
+
+    function filterUnitsByLevel(level, unitSelectId, sectionSelectId) {
+        const unitSelect = document.getElementById(unitSelectId);
+        const sectionSelect = document.getElementById(sectionSelectId);
+
+        // Reset unit select
+        unitSelect.innerHTML = '<option value="">Darsni tanlang...</option>';
+        if (sectionSelect) {
+            sectionSelect.innerHTML = '<option value="">Avval darsni tanlang</option>';
+        }
+
+        if (!level) {
+            // Show all units grouped by optgroup from unitData
+            Object.entries(unitData.unitsByLevel).forEach(([lvl, group]) => {
+                const groupElem = document.createElement("optgroup");
+                groupElem.label = lvl;
+                group.forEach(unit => {
+                    const optElem = document.createElement("option");
+                    optElem.value = unit.id;
+                    optElem.textContent = `${unit.number}-dars: ${unit.title}`;
+                    groupElem.appendChild(optElem);
+                });
+                unitSelect.appendChild(groupElem);
+            });
+        } else {
+            // Show only units for the selected level from unitData
+            const group = unitData.unitsByLevel[level];
+            if (group) {
+                group.forEach(unit => {
+                    const optElem = document.createElement("option");
+                    optElem.value = unit.id;
+                    optElem.textContent = `${unit.number}-dars: ${unit.title}`;
+                    unitSelect.appendChild(optElem);
+                });
+            }
+        }
+    }
+
+    function updateSectionSelect(unitId, selectId, sectionId = 0) {
+        const select = document.getElementById(selectId);
+        if (!select) return;
+        select.innerHTML = '<option value="">Tanlang...</option>';
+
+        if (unitId && unitSections[unitId]) {
+            unitSections[unitId].forEach(sec => {
+                const opt = document.createElement('option');
+                opt.value = sec.id;
+                opt.textContent = sec.title;
+                if (sec.id == sectionId) opt.selected = true;
+                select.appendChild(opt);
+            });
+        } else {
+            select.innerHTML = '<option value="">Avval darsni tanlang</option>';
+        }
+    }
+
+    function toggleAccordion(id) {
+        const table = document.getElementById(id);
+        const icon = document.getElementById('icon-' + id);
+        if (!table) return;
+
+        let openAccordions = [];
+        try {
+            const stored = localStorage.getItem('openAccordions');
+            openAccordions = stored ? JSON.parse(stored) : [];
+        } catch (e) {
+            openAccordions = [];
+        }
+
+        if (table.classList.contains('hidden')) {
+            table.classList.remove('hidden');
+            if (icon) icon.style.transform = 'rotate(180deg)';
+            if (!openAccordions.includes(id)) openAccordions.push(id);
+        } else {
+            table.classList.add('hidden');
+            if (icon) icon.style.transform = 'rotate(0deg)';
+            openAccordions = openAccordions.filter(item => item !== id);
+        }
+
+        try {
+            localStorage.setItem('openAccordions', JSON.stringify(openAccordions));
+        } catch (e) { }
+    }
+
+    // Sahifa yuklanganda holatni tiklash
+    window.addEventListener('load', () => {
+        let openAccordions = [];
+        try {
+            const stored = localStorage.getItem('openAccordions');
+            openAccordions = stored ? JSON.parse(stored) : [];
+        } catch (e) {
+            openAccordions = [];
+        }
+
+        openAccordions.forEach(id => {
+            const el = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            if (el) {
+                el.classList.remove('hidden');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+
+                if (id.startsWith('section-')) {
+                    let parentUnit = el.closest('[id^="unit-"]');
+                    if (parentUnit && parentUnit.classList.contains('hidden')) {
+                        const unitId = parentUnit.id;
+                        parentUnit.classList.remove('hidden');
+                        const unitIcon = document.getElementById('icon-' + unitId);
+                        if (unitIcon) unitIcon.style.transform = 'rotate(180deg)';
+                        if (!openAccordions.includes(unitId)) openAccordions.push(unitId);
+                    }
+                }
+            }
+        });
+
+        try {
+            localStorage.setItem('openAccordions', JSON.stringify(openAccordions));
+        } catch (e) { }
+    });
+
+    function openEditQuestionModal(btn) {
+        const id = btn.getAttribute('data-id');
+        const unitId = btn.getAttribute('data-unit-id');
+        const sectionId = btn.getAttribute('data-section-id');
+        const text = JSON.parse(btn.getAttribute('data-text'));
+        const timeLimit = btn.getAttribute('data-time-limit');
+        const correctIdx = btn.getAttribute('data-correct-idx');
+        const options = JSON.parse(btn.getAttribute('data-options'));
+
+        document.getElementById('editQuestionForm').action = "/questions/edit/" + id;
+
+        // Darajani aniqlash va pre-select qilish
+        const level = unitLevels[unitId] || "";
+        const levelSelect = document.getElementById('edit_q_level');
+        levelSelect.value = level;
+
+        // Darslarni darajaga qarab filtrlab, unitId ni tanlash
+        filterUnitsByLevel(level, 'edit_q_unit_id', 'edit_q_section_id');
+        document.getElementById('edit_q_unit_id').value = unitId;
+
+        // Bo'limlarni yuklash va tanlash
+        updateSectionSelect(unitId, 'edit_q_section_id', sectionId);
+
+        document.getElementById('edit_q_text').value = text;
+        document.getElementById('edit_q_time_limit').value = timeLimit;
+
+        for (let i = 1; i <= 4; i++) {
+            const optInput = document.getElementById('edit_q_option_' + i);
+            const radioInput = document.getElementById('edit_q_correct_' + i);
+            if (options[i - 1]) {
+                optInput.value = options[i - 1].text || options[i - 1]; // Handle both object and string
+            } else {
+                optInput.value = "";
+            }
+            radioInput.checked = (i == correctIdx);
+        }
+
+        const modal = document.getElementById('editQuestionModal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+</script>
+{% endblock %}

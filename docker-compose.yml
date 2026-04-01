@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-15101995x}
+      POSTGRES_DB: quiz_db
+      TZ: Asia/Tashkent
+      PGTZ: Asia/Tashkent
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  web_admin:
+    build: .
+    command: >
+      sh -c "alembic upgrade head &&
+             python main_flask.py"
+    ports:
+      - "5050:5050"
+    environment:
+      DATABASE_URL: postgresql+psycopg://postgres:15101995x@db:5432/quiz_db
+      SYNC_DATABASE_URL: postgresql+psycopg://postgres:15101995x@db:5432/quiz_db
+      TZ: Asia/Tashkent
+    env_file:
+      - .env
+    depends_on:
+      - db
+    restart: on-failure
+
+  telegram_bot:
+    build: .
+    command: python main_bot.py
+    environment:
+      DATABASE_URL: postgresql+psycopg://postgres:15101995x@db:5432/quiz_db
+      SYNC_DATABASE_URL: postgresql+psycopg://postgres:15101995x@db:5432/quiz_db
+      TZ: Asia/Tashkent
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - web_admin
+    restart: on-failure
+
+volumes:
+  pg_data:

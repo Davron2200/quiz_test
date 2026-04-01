@@ -1,0 +1,12 @@
+Flask>=3.0.2
+Werkzeug>=3.0.1
+aiogram>=3.14.0
+SQLAlchemy>=2.0.25
+alembic>=1.13.1
+python-dotenv>=1.0.1
+openpyxl>=3.1.2
+psycopg2-binary>=2.9.9
+asyncpg>=0.29.0
+Flask-Login>=0.6.3
+Flask-Bcrypt>=1.0.1
+fpdf2>=2.7.8

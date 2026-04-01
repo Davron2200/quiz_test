@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% set active_page = 'dashboard' %}
+
+{% block title %}Dashboard | QuizAdmin{% endblock %}
+
+{% block header_title %}Umumiy ko'rsatkichlar{% endblock %}
+
+{% block header_actions %}
+<div
+    class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-100 to-purple-100 border border-indigo-200 flex items-center justify-center text-indigo-700 font-bold shadow-sm cursor-pointer hover:shadow-md transition-shadow">
+    <i class="fas fa-user-shield text-sm"></i>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<!-- Overall Users & Summary Card -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <!-- Users Card -->
+    <div
+        class="bg-white rounded-3xl p-6 border border-slate-100 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] relative overflow-hidden group">
+        <div
+            class="absolute -right-4 -top-4 w-24 h-24 bg-indigo-500/5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700">
+        </div>
+        <div class="flex items-center gap-4">
+            <div
+                class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl border border-indigo-100 shadow-sm">
+                <i class="fas fa-users"></i>
+            </div>
+            <div>
+                <p class="text-slate-400 text-xs font-black uppercase tracking-widest">Foydalanuvchilar</p>
+                <h3 class="text-3xl font-black text-slate-800">{{ users|default(0) }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Total Units Card -->
+    <div
+        class="bg-white rounded-3xl p-6 border border-slate-100 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] relative overflow-hidden group">
+        <div
+            class="absolute -right-4 -top-4 w-24 h-24 bg-emerald-500/5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700">
+        </div>
+        <div class="flex items-center gap-4">
+            <div
+                class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl border border-emerald-100 shadow-sm">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <div>
+                <p class="text-slate-400 text-xs font-black uppercase tracking-widest">Jami Mavzular</p>
+                <h3 class="text-3xl font-black text-slate-800">{{ total_units|default(0) }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Total Questions Card -->
+    <div
+        class="bg-white rounded-3xl p-6 border border-slate-100 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] relative overflow-hidden group">
+        <div
+            class="absolute -right-4 -top-4 w-24 h-24 bg-purple-500/5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700">
+        </div>
+        <div class="flex items-center gap-4">
+            <div
+                class="w-14 h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl border border-purple-100 shadow-sm">
+                <i class="fas fa-question-circle"></i>
+            </div>
+            <div>
+                <p class="text-slate-400 text-xs font-black uppercase tracking-widest">Jami Savollar</p>
+                <h3 class="text-3xl font-black text-slate-800">{{ total_questions|default(0) }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Level-wise Stats Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    {% for level in ['A1', 'A2', 'B1', 'B2'] %}
+    {% set l_stats = stats.get(level, {'units': 0, 'questions': 0}) %}
+    <div
+        class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] relative overflow-hidden group transition-all duration-500 hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1">
+        <!-- Background Accent -->
+        <div class="absolute -right-10 -bottom-10 w-32 h-32 rounded-full blur-3xl opacity-20 transition-transform group-hover:scale-150 duration-700
+            {% if level == 'A1' %}bg-emerald-400
+            {% elif level == 'A2' %}bg-blue-400
+            {% elif level == 'B1' %}bg-amber-400
+            {% elif level == 'B2' %}bg-rose-400{% endif %}">
+        </div>
+
+        <div class="flex justify-between items-start mb-6 relative z-10">
+            <div class="flex flex-col">
+                <span class="text-[10px] font-black uppercase tracking-[0.2em] mb-1
+                    {% if level == 'A1' %}text-emerald-500
+                    {% elif level == 'A2' %}text-blue-500
+                    {% elif level == 'B1' %}text-amber-500
+                    {% elif level == 'B2' %}text-rose-500{% endif %}">Til Darajasi</span>
+                <h3 class="text-3xl font-black text-slate-800">{{ level }}</h3>
+            </div>
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white border-2 border-white shadow-lg rotate-3 group-hover:rotate-12 transition-transform duration-500
+                {% if level == 'A1' %}bg-gradient-to-br from-emerald-400 to-emerald-600
+                {% elif level == 'A2' %}bg-gradient-to-br from-blue-400 to-blue-600
+                {% elif level == 'B1' %}bg-gradient-to-br from-amber-400 to-amber-600
+                {% elif level == 'B2' %}bg-gradient-to-br from-rose-400 to-rose-600{% endif %}">
+                <span class="font-black text-xs">{{ level }}</span>
+            </div>
+        </div>
+
+        <div class="space-y-4 relative z-10">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-book-open text-slate-300 text-xs"></i>
+                    <span class="text-sm font-bold text-slate-500">Mavzular</span>
+                </div>
+                <span class="text-lg font-black text-slate-700">{{ l_stats.units }}</span>
+            </div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-question-circle text-slate-300 text-xs"></i>
+                    <span class="text-sm font-bold text-slate-500">Savollar</span>
+                </div>
+                <span class="text-lg font-black text-slate-700">{{ l_stats.questions }}</span>
+            </div>
+        </div>
+
+        <!-- Progress mini-bar -->
+        {% set gradient_colors = {
+        'A1': '#34d399, #10b981',
+        'A2': '#60a5fa, #3b82f6',
+        'B1': '#fbbf24, #f59e0b',
+        'B2': '#fb7185, #f43f5e'
+        }.get(level, '#6366f1, #a855f7') %}
+        <div class="mt-6 h-1 w-full bg-slate-50 rounded-full overflow-hidden relative">
+            <div class="absolute left-0 top-0 h-full rounded-full transition-all duration-1000 progress-bar-fill"
+                data-width="{{ (l_stats.questions / (total_questions if total_questions > 0 else 1) * 100)|round }}%"
+                data-bg="linear-gradient(to right, {{ gradient_colors }})">
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Quick Actions Section -->
+<div class="mt-10">
+    <h2 class="text-lg font-bold text-slate-800 mb-4">Tezkor Havolalar</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <a href="{{ url_for('units') }}"
+            class="group flex items-center p-4 bg-white border border-slate-200 rounded-xl hover:border-indigo-300 hover:shadow-md transition-all">
+            <div
+                class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center mr-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                <i class="fas fa-plus"></i>
+            </div>
+            <div>
+                <p class="font-semibold text-slate-800">Yangi dars qo'shish</p>
+                <p class="text-xs text-slate-500 pt-0.5">Mavzular bo'limiga o'tish</p>
+            </div>
+        </a>
+
+        <a href="{{ url_for('questions') }}"
+            class="group flex items-center p-4 bg-white border border-slate-200 rounded-xl hover:border-purple-300 hover:shadow-md transition-all">
+            <div
+                class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center mr-4 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                <i class="fas fa-file-excel"></i>
+            </div>
+            <div>
+                <p class="font-semibold text-slate-800">Testlarni yuklash</p>
+                <p class="text-xs text-slate-500 pt-0.5">Excel orqali savollar importi</p>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Apply progress bar styles from data attributes to avoid editor syntax errors
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.progress-bar-fill').forEach(el => {
+            el.style.width = el.dataset.width;
+            el.style.background = el.dataset.bg;
+        });
+    });
+</script>
+{% endblock %}

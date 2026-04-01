@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Sozlamalar | Quiz Admin Panel{% endblock %}
+
+{% block header_title %}Sozlamalar{% endblock %}
+
+{% block main_content %}
+<div class="max-w-3xl mx-auto">
+    <!-- Premium Glassmorphism Card -->
+    <div class="bg-white/80 backdrop-blur-xl rounded-3xl border border-white p-8 shadow-xl shadow-slate-200/50 relative overflow-hidden">
+        
+        <!-- Decoration elements -->
+        <div class="absolute -top-24 -right-24 w-48 h-48 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        
+        <div class="relative z-10 flex flex-col gap-8">
+            <div class="flex items-center gap-4 border-b border-slate-100 pb-6">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-slate-800 to-slate-700 flex items-center justify-center shadow-lg shadow-slate-300">
+                    <i class="fas fa-cog text-2xl text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold tracking-tight text-slate-800">Tizim sozlamalari</h2>
+                    <p class="text-slate-500 mt-1">Bot va platformaning ishlash tartibini boshqaring</p>
+                </div>
+            </div>
+
+            <form action="{{ url_for('settings_page') }}" method="POST" class="space-y-8">
+                
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 transition-all hover:shadow-md hover:border-indigo-100 group">
+                    <div class="flex items-start justify-between gap-4">
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-slate-800 flex items-center gap-2">
+                                <i class="fas fa-robot text-indigo-500"></i> Bot ishga tushish xabarnomasi
+                            </h3>
+                            <p class="text-slate-500 mt-2 text-sm leading-relaxed">
+                                Dastur ishga tushganda yoki qayta ishga tushganda barcha foydalanuvchilarga "Bot ishga tushdi" degan xabarnoma yuboriladi. Test yoki sozlash paytida buni o'chirib qo'yishingiz mumkin.
+                            </p>
+                        </div>
+                        
+                        <!-- Premium Toggle Switch -->
+                        <div class="pt-1">
+                            <label class="relative inline-flex items-center cursor-pointer group-toggle">
+                                <input type="checkbox" name="send_bot_startup_message" class="sr-only peer" {% if setting.send_bot_startup_message %}checked{% endif %}>
+                                <div class="w-14 h-7 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-indigo-500 peer-checked:to-purple-500 shadow-inner"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-end pt-4 border-t border-slate-100">
+                    <button type="submit" class="px-8 py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-medium rounded-xl shadow-lg shadow-indigo-500/30 transition-all hover:-translate-y-0.5 transform focus:ring-4 focus:ring-indigo-100 flex items-center gap-2">
+                        <i class="fas fa-save"></i> 
+                        <span>Saqlash</span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

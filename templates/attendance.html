@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% set active_page = 'attendance' %}
+
+{% block title %}Davomat | QuizAdmin{% endblock %}
+
+{% block header_title %}Davomat Hisoboti{% endblock %}
+
+{% block header_actions %}
+<div class="flex items-center gap-4">
+    <form action="{{ url_for('attendance_list') }}" method="GET"
+        class="flex items-center gap-3 bg-white p-1.5 rounded-xl border border-slate-200 shadow-sm">
+        <select name="group_id"
+            class="px-3 py-2 bg-slate-50 border-none rounded-lg text-sm font-bold text-slate-700 focus:ring-0">
+            <option value="">Barcha guruhlar</option>
+            {% for g in groups %}
+            <option value="{{ g.id }}" {% if selected_group==g.id %}selected{% endif %}>{{ g.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="date" name="date" value="{{ selected_date or '' }}"
+            class="px-3 py-2 bg-slate-50 border-none rounded-lg text-sm font-bold text-slate-700 focus:ring-0">
+        <button type="submit"
+            class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-indigo-700 transition-colors">
+            <i class="fas fa-filter mr-1"></i> Saralash
+        </button>
+        {% if selected_group or selected_date %}
+        <a href="{{ url_for('attendance_list') }}" class="text-slate-400 hover:text-rose-500 px-2 transition-colors"
+            title="Filtrni tozalash">
+            <i class="fas fa-times-circle"></i>
+        </a>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="bg-white rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-slate-100 overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-slate-100">
+            <thead class="bg-slate-50/50">
+                <tr>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">O'quvchi
+                    </th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Guruh</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Sana</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Holat</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Vaqt</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-slate-50">
+                {% for record in records %}
+                <tr class="hover:bg-slate-50/80 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 font-bold text-xs">
+                                {{ record.user.first_name[0] if record.user.first_name else 'U' }}
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-sm font-bold text-slate-800">{{ record.user.first_name }} {{
+                                    record.user.last_name or '' }}</span>
+                                <span class="text-[10px] text-slate-400">ID: {{ record.user.telegram_id }}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-lg text-xs font-bold">
+                            {{ record.group.name }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-600">
+                        {{ record.date.strftime('%d.%m.%Y') if record.date else '-' }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {% if record.status == 'present' %}
+                        <span
+                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            Keldi
+                        </span>
+                        {% elif record.status == 'absent' %}
+                        <span
+                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-rose-50 text-rose-600 border border-rose-100">
+                            <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                            Kelmadi
+                        </span>
+                        {% elif record.status == 'late' %}
+                        <span
+                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-amber-50 text-amber-600 border border-amber-100">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                            Kechikdi
+                        </span>
+                        {% endif %}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-xs text-slate-400">
+                        {{ record.created_at.strftime('%H:%M') if record.created_at else '-' }}
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" class="px-6 py-12 text-center text-slate-400 bg-slate-50/50">
+                        <div class="flex flex-col items-center justify-center">
+                            <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-4">
+                                <i class="fas fa-clipboard-list text-3xl text-slate-300"></i>
+                            </div>
+                            <p class="font-medium text-slate-600">Davomat ma'lumotlari topilmadi</p>
+                            <p class="text-sm mt-1">Sana yoki guruhni o'zgartirib ko'ring</p>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% set active_page = 'questions' %}
+
+{% block title %}Savollar | QuizAdmin{% endblock %}
+
+{% block header_scripts %}
+<script id="level-data" type="application/json">
+        [
+            {% for level, group in units | groupby("level") %}
+            {{ level | tojson }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        ]
+    </script>
+<script>
+    function testFix() {
+        const levels = JSON.parse(document.getElementById('level-data').textContent);
+        levels.forEach(level => console.log("Level: " + level));
+    }
+</script>
+{% endblock %}

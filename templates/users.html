@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% set active_page = 'users' %}
+
+{% block title %}Foydalanuvchilar | QuizAdmin{% endblock %}
+
+{% block header_title %}Foydalanuvchilar{% endblock %}
+
+{% block header_actions %}
+<div
+    class="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-xl font-bold text-sm border border-indigo-100 flex items-center gap-2">
+    <i class="fas fa-user-friends"></i> {{ users_list|length }} ta
+</div>
+{% endblock %}
+
+{% block main_content %}
+<!-- Table Card -->
+<div class="bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 overflow-x-auto">
+    <table class="min-w-full">
+        <thead>
+            <tr class="bg-slate-50/50 border-b border-slate-100">
+                <th class="px-4 py-5 text-left text-xs font-black text-slate-400 uppercase tracking-widest">
+                    Foydalanuvchi</th>
+                <th class="px-4 py-5 text-left text-xs font-black text-slate-400 uppercase tracking-widest">Username
+                </th>
+                <th class="px-4 py-5 text-left text-xs font-black text-slate-400 uppercase tracking-widest">Telegram ID
+                </th>
+                <th class="px-4 py-5 text-left text-xs font-black text-slate-400 uppercase tracking-widest">Rol</th>
+                <th class="px-4 py-5 text-left text-xs font-black text-slate-400 uppercase tracking-widest">Guruh</th>
+                <th class="px-4 py-5 text-left text-xs font-black text-slate-400 uppercase tracking-widest">Sana</th>
+                <th class="px-4 py-5 text-right text-xs font-black text-slate-400 uppercase tracking-widest">Harakat
+                </th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-50">
+            {% for user in users_list %}
+            <tr class="hover:bg-slate-50/80 transition-colors group">
+                <td class="px-4 py-6 whitespace-nowrap">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-slate-500 font-black text-lg shadow-inner group-hover:from-indigo-100 group-hover:to-indigo-200 group-hover:text-indigo-600 transition-all">
+                            {{ user.first_name[0] if user.first_name else '?' }}
+                        </div>
+                        <div>
+                            <div class="text-base font-black text-slate-800">{{ user.first_name or 'Noma\'lum' }}</div>
+                            <div class="text-xs font-bold text-indigo-500/70">Foydalanuvchi</div>
+                        </div>
+                    </div>
+                </td>
+                <td class="px-4 py-6 whitespace-nowrap">
+                    {% if user.username %}
+                    <span
+                        class="px-3 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-sm font-bold border border-indigo-100">@{{
+                        user.username }}</span>
+                    {% else %}
+                    <span class="text-slate-300 italic text-sm font-medium">Username mavjud emas</span>
+                    {% endif %}
+                </td>
+                <td class="px-4 py-6 whitespace-nowrap">
+                    <code
+                        class="text-sm bg-slate-100 px-2 py-1 rounded-md text-slate-600 font-mono">{{ user.telegram_id }}</code>
+                </td>
+                <td class="px-4 py-6 whitespace-nowrap">
+                    {% if user.role == 'admin' %}
+                    <span
+                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-600 text-xs font-bold border border-amber-100">
+                        <i class="fas fa-crown text-[10px]"></i> Admin
+                    </span>
+                    {% elif user.role == 'teacher' %}
+                    <span
+                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold border border-blue-100">
+                        <i class="fas fa-chalkboard-teacher text-[10px]"></i> Mentor
+                    </span>
+                    {% else %}
+                    <span
+                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 text-slate-500 text-xs font-bold border border-slate-100">
+                        <i class="fas fa-user text-[10px]"></i> User
+                    </span>
+                    {% endif %}
+                </td>
+                <td class="px-4 py-6 whitespace-nowrap">
+                    <select data-user-id="{{ user.id }}" onchange="updateUserGroup(this)"
+                        class="bg-slate-50 border border-slate-200 text-slate-700 text-[10px] font-black uppercase tracking-tight rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2 transition-all cursor-pointer hover:bg-white hover:border-indigo-200">
+                        <option value="0">Guruhsiz</option>
+                        {% for g in groups_list %}
+                        <option value="{{ g.id }}" {% if user.group_id==g.id %}selected{% endif %}>{{ g.name }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td class="px-4 py-6 whitespace-nowrap">
+                    <div class="text-sm font-bold text-slate-600">{{ user.created_at.strftime('%d.%m.%Y') if
+                        user.created_at else '-' }}</div>
+                    <div class="text-[10px] font-black text-slate-400 uppercase tracking-tighter">{{
+                        user.created_at.strftime('%H:%M') if user.created_at else '' }}</div>
+                </td>
+                <td class="px-8 py-6 whitespace-nowrap text-right">
+                    <button data-user-id="{{ user.id }}" data-role="{{ user.role|tojson|forceescape }}"
+                        onclick="toggleUserRole(this)" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 active:scale-95 shadow-sm border
+                        {% if user.role == 'admin' %}
+                        bg-white text-slate-500 border-slate-200 hover:bg-slate-50 hover:text-red-500
+                        {% elif user.role == 'teacher' %}
+                        bg-blue-50 text-blue-600 border-blue-100 hover:bg-blue-100
+                        {% else %}
+                        bg-amber-50 text-amber-600 border-amber-100 hover:bg-amber-100 hover:border-amber-200
+                        {% endif %}">
+                        {% if user.role == 'admin' %}
+                        User qilish
+                        {% elif user.role == 'teacher' %}
+                        Admin qilish
+                        {% else %}
+                        Mentor qilish
+                        {% endif %}
+                    </button>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6" class="px-8 py-20 text-center">
+                    <div class="flex flex-col items-center justify-center">
+                        <div class="w-20 h-20 rounded-full bg-slate-50 flex items-center justify-center mb-6">
+                            <i class="fas fa-users-slash text-4xl text-slate-200"></i>
+                        </div>
+                        <h3 class="text-xl font-black text-slate-800 mb-2">Hali foydalanuvchilar yo'q</h3>
+                        <p class="text-slate-400 max-w-xs mx-auto">Bot ishga tushgandan so'ng va foydalanuvchilar start
+                            bosganda bu yerda ro'yxat shakllanadi.</p>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% block extra_js %}
+<script>
+    async function toggleUserRole(btn) {
+        const userId = btn.getAttribute('data-user-id');
+        const currentRole = JSON.parse(btn.getAttribute('data-role'));
+        let newRole, actionText;
+        if (currentRole === 'user') {
+            newRole = 'teacher';
+            actionText = 'O\'qituvchi (Mentor) qilishni';
+        } else if (currentRole === 'teacher') {
+            newRole = 'admin';
+            actionText = 'Admin qilishni';
+        } else {
+            newRole = 'user';
+            actionText = 'oddiy foydalanuvchi (User) qilishni';
+        }
+
+        if (!confirm(`Haqiqatan ham bu foydalanuvchini ${actionText} xohlaysizmi?`)) {
+            return;
+        }
+
+        try {
+            const response = await fetch(`/api/user/role/${userId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ role: newRole })
+            });
+
+            if (response.ok) {
+                window.location.reload();
+            } else {
+                alert("Xatolik yuz berdi. Iltimos qayta urinib ko'ring.");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Tizimda xatolik yuz berdi.");
+        }
+    }
+
+    async function updateUserGroup(select) {
+        const userId = select.getAttribute('data-user-id');
+        const groupId = select.value;
+        try {
+            const response = await fetch(`/api/user/group/${userId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ group_id: parseInt(groupId) })
+            });
+
+            if (!response.ok) {
+                alert("Xatolik yuz berdi. Iltimos qayta urinib ko'ring.");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Tizimda xatolik yuz berdi.");
+        }
+    }
+</script>
+{% endblock %}
+{% endblock %}

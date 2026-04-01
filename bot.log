@@ -1,0 +1,1125 @@
+2026-04-01 13:13:42,713 - aiogram.dispatcher - INFO - Start polling
+2026-04-01 13:13:43,102 - aiogram.dispatcher - INFO - Run polling for bot @TURKCHA_LUGAT_bot id=8613925597 - 'quiz_test'
+2026-04-01 13:18:17,793 - aiogram.event - INFO - Update id=82422353 is handled. Duration 354 ms by bot id=8613925597
+2026-04-01 13:18:28,979 - aiogram.event - INFO - Update id=82422354 is handled. Duration 126 ms by bot id=8613925597
+2026-04-01 13:18:30,537 - aiogram.event - INFO - Update id=82422355 is handled. Duration 127 ms by bot id=8613925597
+2026-04-01 13:18:32,723 - aiogram.event - INFO - Update id=82422356 is handled. Duration 126 ms by bot id=8613925597
+2026-04-01 13:18:34,557 - aiogram.event - INFO - Update id=82422357 is handled. Duration 128 ms by bot id=8613925597
+2026-04-01 13:18:39,841 - aiogram.event - INFO - Update id=82422358 is handled. Duration 137 ms by bot id=8613925597
+2026-04-01 13:18:41,525 - aiogram.event - INFO - Update id=82422359 is handled. Duration 139 ms by bot id=8613925597
+2026-04-01 13:18:43,178 - aiogram.event - INFO - Update id=82422360 is handled. Duration 132 ms by bot id=8613925597
+2026-04-01 13:18:44,660 - aiogram.event - INFO - Update id=82422361 is handled. Duration 458 ms by bot id=8613925597
+2026-04-01 13:20:19,691 - aiogram.event - INFO - Update id=82422362 is handled. Duration 686 ms by bot id=8613925597
+2026-04-01 13:21:02,161 - aiogram.event - INFO - Update id=82422363 is handled. Duration 124 ms by bot id=8613925597
+2026-04-01 13:21:03,629 - aiogram.event - INFO - Update id=82422364 is handled. Duration 145 ms by bot id=8613925597
+2026-04-01 13:21:08,778 - aiogram.event - INFO - Update id=82422365 is handled. Duration 380 ms by bot id=8613925597
+2026-04-01 13:21:11,772 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-154' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:12,402 - aiogram.event - INFO - Update id=82422366 is handled. Duration 633 ms by bot id=8613925597
+2026-04-01 13:21:13,552 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-161' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:14,193 - aiogram.event - INFO - Update id=82422367 is handled. Duration 641 ms by bot id=8613925597
+2026-04-01 13:21:15,094 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-168' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:15,757 - aiogram.event - INFO - Update id=82422368 is handled. Duration 663 ms by bot id=8613925597
+2026-04-01 13:21:16,543 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-175' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:17,200 - aiogram.event - INFO - Update id=82422369 is handled. Duration 657 ms by bot id=8613925597
+2026-04-01 13:21:18,225 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-182' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:18,878 - aiogram.event - INFO - Update id=82422370 is handled. Duration 652 ms by bot id=8613925597
+2026-04-01 13:21:19,924 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-189' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:20,560 - aiogram.event - INFO - Update id=82422371 is handled. Duration 636 ms by bot id=8613925597
+2026-04-01 13:21:21,449 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-196' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:22,098 - aiogram.event - INFO - Update id=82422372 is handled. Duration 648 ms by bot id=8613925597
+2026-04-01 13:21:23,283 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-203' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:24,019 - aiogram.event - INFO - Update id=82422373 is handled. Duration 735 ms by bot id=8613925597
+2026-04-01 13:21:25,326 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-210' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:25,961 - aiogram.event - INFO - Update id=82422374 is handled. Duration 634 ms by bot id=8613925597
+2026-04-01 13:21:27,097 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-217' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:27,747 - aiogram.event - INFO - Update id=82422375 is handled. Duration 650 ms by bot id=8613925597
+2026-04-01 13:21:28,568 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-224' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:29,232 - aiogram.event - INFO - Update id=82422376 is handled. Duration 664 ms by bot id=8613925597
+2026-04-01 13:21:30,147 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-231' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:30,798 - aiogram.event - INFO - Update id=82422377 is handled. Duration 650 ms by bot id=8613925597
+2026-04-01 13:21:31,888 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-238' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:32,533 - aiogram.event - INFO - Update id=82422378 is handled. Duration 645 ms by bot id=8613925597
+2026-04-01 13:21:33,843 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-245' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:34,488 - aiogram.event - INFO - Update id=82422379 is handled. Duration 645 ms by bot id=8613925597
+2026-04-01 13:21:36,228 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-252' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:36,867 - aiogram.event - INFO - Update id=82422380 is handled. Duration 638 ms by bot id=8613925597
+2026-04-01 13:21:38,081 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-259' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:38,730 - aiogram.event - INFO - Update id=82422381 is handled. Duration 649 ms by bot id=8613925597
+2026-04-01 13:21:39,657 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-266' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:40,346 - aiogram.event - INFO - Update id=82422382 is handled. Duration 688 ms by bot id=8613925597
+2026-04-01 13:21:41,277 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-273' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:41,933 - aiogram.event - INFO - Update id=82422383 is handled. Duration 655 ms by bot id=8613925597
+2026-04-01 13:21:44,042 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-280' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:44,775 - aiogram.event - INFO - Update id=82422384 is handled. Duration 733 ms by bot id=8613925597
+2026-04-01 13:21:46,026 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-287' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:46,727 - aiogram.event - INFO - Update id=82422385 is handled. Duration 701 ms by bot id=8613925597
+2026-04-01 13:21:48,008 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-294' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:48,727 - aiogram.event - INFO - Update id=82422386 is handled. Duration 719 ms by bot id=8613925597
+2026-04-01 13:21:49,756 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-301' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:50,445 - aiogram.event - INFO - Update id=82422387 is handled. Duration 689 ms by bot id=8613925597
+2026-04-01 13:21:51,492 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-308' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:52,147 - aiogram.event - INFO - Update id=82422388 is handled. Duration 654 ms by bot id=8613925597
+2026-04-01 13:21:53,030 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-315' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:53,678 - aiogram.event - INFO - Update id=82422389 is handled. Duration 648 ms by bot id=8613925597
+2026-04-01 13:21:54,652 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-322' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:55,290 - aiogram.event - INFO - Update id=82422390 is handled. Duration 638 ms by bot id=8613925597
+2026-04-01 13:21:56,435 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-329' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:57,078 - aiogram.event - INFO - Update id=82422391 is handled. Duration 643 ms by bot id=8613925597
+2026-04-01 13:21:58,280 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-336' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:21:58,933 - aiogram.event - INFO - Update id=82422392 is handled. Duration 652 ms by bot id=8613925597
+2026-04-01 13:22:00,007 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-343' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:00,655 - aiogram.event - INFO - Update id=82422393 is handled. Duration 648 ms by bot id=8613925597
+2026-04-01 13:22:01,553 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-350' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:02,202 - aiogram.event - INFO - Update id=82422394 is handled. Duration 649 ms by bot id=8613925597
+2026-04-01 13:22:03,175 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-357' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:03,822 - aiogram.event - INFO - Update id=82422395 is handled. Duration 647 ms by bot id=8613925597
+2026-04-01 13:22:04,882 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-364' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:05,547 - aiogram.event - INFO - Update id=82422396 is handled. Duration 665 ms by bot id=8613925597
+2026-04-01 13:22:06,590 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-371' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:07,235 - aiogram.event - INFO - Update id=82422397 is handled. Duration 645 ms by bot id=8613925597
+2026-04-01 13:22:08,324 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-378' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:08,974 - aiogram.event - INFO - Update id=82422398 is handled. Duration 650 ms by bot id=8613925597
+2026-04-01 13:22:09,798 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-385' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:10,447 - aiogram.event - INFO - Update id=82422399 is handled. Duration 649 ms by bot id=8613925597
+2026-04-01 13:22:11,702 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-392' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:12,335 - aiogram.event - INFO - Update id=82422400 is handled. Duration 632 ms by bot id=8613925597
+2026-04-01 13:22:13,250 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-399' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:13,931 - aiogram.event - INFO - Update id=82422401 is handled. Duration 681 ms by bot id=8613925597
+2026-04-01 13:22:15,128 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-406' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:15,778 - aiogram.event - INFO - Update id=82422402 is handled. Duration 649 ms by bot id=8613925597
+2026-04-01 13:22:16,658 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-413' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:17,299 - aiogram.event - INFO - Update id=82422403 is handled. Duration 641 ms by bot id=8613925597
+2026-04-01 13:22:18,391 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-420' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:19,032 - aiogram.event - INFO - Update id=82422404 is handled. Duration 641 ms by bot id=8613925597
+2026-04-01 13:22:20,062 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-427' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:20,807 - aiogram.event - INFO - Update id=82422405 is handled. Duration 744 ms by bot id=8613925597
+2026-04-01 13:22:21,659 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-434' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:22,305 - aiogram.event - INFO - Update id=82422406 is handled. Duration 646 ms by bot id=8613925597
+2026-04-01 13:22:23,137 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-441' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:23,783 - aiogram.event - INFO - Update id=82422407 is handled. Duration 646 ms by bot id=8613925597
+2026-04-01 13:22:40,177 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-454' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:22:40,812 - aiogram.event - INFO - Update id=82422408 is handled. Duration 635 ms by bot id=8613925597
+2026-04-01 13:23:39,103 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-491' coro=<Bot.edit_message_reply_markup() done, defined at C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py:1445> exception=1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type>
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\aiogram\client\bot.py", line 1468, in edit_message_reply_markup
+    call = EditMessageReplyMarkup(
+        business_connection_id=business_connection_id,
+    ...<3 lines>...
+        reply_markup=reply_markup,
+    )
+  File "C:\Users\Admin\Desktop\quiz_test\venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for EditMessageReplyMarkup
+business_connection_id
+  Input should be a valid string [type=string_type, input_value=444661243, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-04-01 13:23:39,739 - aiogram.event - INFO - Update id=82422409 is handled. Duration 635 ms by bot id=8613925597
+2026-04-01 13:26:39,676 - aiogram.dispatcher - INFO - Start polling
+2026-04-01 13:26:40,074 - aiogram.dispatcher - INFO - Run polling for bot @TURKCHA_LUGAT_bot id=8613925597 - 'quiz_test'
+2026-04-01 13:27:30,923 - aiogram.event - INFO - Update id=82422410 is handled. Duration 358 ms by bot id=8613925597
+2026-04-01 13:27:32,461 - aiogram.event - INFO - Update id=82422411 is handled. Duration 248 ms by bot id=8613925597
+2026-04-01 13:27:34,151 - aiogram.event - INFO - Update id=82422412 is handled. Duration 422 ms by bot id=8613925597
+2026-04-01 13:27:36,041 - aiogram.event - INFO - Update id=82422413 is handled. Duration 627 ms by bot id=8613925597
+2026-04-01 13:27:38,021 - aiogram.event - INFO - Update id=82422414 is handled. Duration 634 ms by bot id=8613925597
+2026-04-01 13:27:39,692 - aiogram.event - INFO - Update id=82422415 is handled. Duration 644 ms by bot id=8613925597
+2026-04-01 13:27:41,192 - aiogram.event - INFO - Update id=82422416 is handled. Duration 632 ms by bot id=8613925597
+2026-04-01 13:27:42,875 - aiogram.event - INFO - Update id=82422417 is handled. Duration 642 ms by bot id=8613925597
+2026-04-01 13:27:44,530 - aiogram.event - INFO - Update id=82422418 is handled. Duration 644 ms by bot id=8613925597
+2026-04-01 13:27:56,208 - aiogram.event - INFO - Update id=82422419 is handled. Duration 484 ms by bot id=8613925597
+2026-04-01 13:28:00,851 - aiogram.event - INFO - Update id=82422420 is handled. Duration 129 ms by bot id=8613925597
+2026-04-01 13:28:02,029 - aiogram.event - INFO - Update id=82422421 is handled. Duration 384 ms by bot id=8613925597
+2026-04-01 13:28:15,392 - aiogram.event - INFO - Update id=82422422 is handled. Duration 656 ms by bot id=8613925597
+2026-04-01 13:28:16,678 - aiogram.event - INFO - Update id=82422423 is handled. Duration 650 ms by bot id=8613925597
+2026-04-01 13:28:18,148 - aiogram.event - INFO - Update id=82422424 is handled. Duration 662 ms by bot id=8613925597
+2026-04-01 13:28:19,292 - aiogram.event - INFO - Update id=82422425 is handled. Duration 653 ms by bot id=8613925597
+2026-04-01 13:28:20,576 - aiogram.event - INFO - Update id=82422426 is handled. Duration 635 ms by bot id=8613925597
+2026-04-01 13:28:21,813 - aiogram.event - INFO - Update id=82422427 is handled. Duration 649 ms by bot id=8613925597
+2026-04-01 13:28:23,019 - aiogram.event - INFO - Update id=82422428 is handled. Duration 674 ms by bot id=8613925597
+2026-04-01 13:28:24,310 - aiogram.event - INFO - Update id=82422429 is handled. Duration 655 ms by bot id=8613925597
+2026-04-01 13:28:25,500 - aiogram.event - INFO - Update id=82422430 is handled. Duration 645 ms by bot id=8613925597
+2026-04-01 13:28:26,746 - aiogram.event - INFO - Update id=82422431 is handled. Duration 649 ms by bot id=8613925597
+2026-04-01 13:28:27,849 - aiogram.event - INFO - Update id=82422432 is handled. Duration 662 ms by bot id=8613925597
+2026-04-01 13:28:29,206 - aiogram.event - INFO - Update id=82422433 is handled. Duration 709 ms by bot id=8613925597
+2026-04-01 13:28:30,402 - aiogram.event - INFO - Update id=82422434 is handled. Duration 640 ms by bot id=8613925597
+2026-04-01 13:28:31,720 - aiogram.event - INFO - Update id=82422435 is handled. Duration 731 ms by bot id=8613925597
+2026-04-01 13:28:32,913 - aiogram.event - INFO - Update id=82422436 is handled. Duration 652 ms by bot id=8613925597
+2026-04-01 13:28:34,060 - aiogram.event - INFO - Update id=82422437 is handled. Duration 641 ms by bot id=8613925597
+2026-04-01 13:28:35,225 - aiogram.event - INFO - Update id=82422438 is handled. Duration 635 ms by bot id=8613925597
+2026-04-01 13:28:37,012 - aiogram.event - INFO - Update id=82422439 is handled. Duration 722 ms by bot id=8613925597
+2026-04-01 13:28:40,773 - aiogram.event - INFO - Update id=82422440 is handled. Duration 645 ms by bot id=8613925597
+2026-04-01 13:28:42,735 - aiogram.event - INFO - Update id=82422441 is handled. Duration 645 ms by bot id=8613925597
+2026-04-01 13:28:43,981 - aiogram.event - INFO - Update id=82422442 is handled. Duration 637 ms by bot id=8613925597
+2026-04-01 13:28:45,287 - aiogram.event - INFO - Update id=82422443 is handled. Duration 631 ms by bot id=8613925597
+2026-04-01 13:28:46,606 - aiogram.event - INFO - Update id=82422444 is handled. Duration 636 ms by bot id=8613925597
+2026-04-01 13:28:48,113 - aiogram.event - INFO - Update id=82422445 is handled. Duration 667 ms by bot id=8613925597
+2026-04-01 13:29:01,692 - aiogram.event - INFO - Update id=82422446 is handled. Duration 637 ms by bot id=8613925597
+2026-04-01 13:32:48,702 - aiogram.dispatcher - INFO - Start polling
+2026-04-01 13:32:49,081 - aiogram.dispatcher - INFO - Run polling for bot @TURKCHA_LUGAT_bot id=8613925597 - 'quiz_test'
+2026-04-01 13:33:14,871 - aiogram.event - INFO - Update id=82422447 is handled. Duration 527 ms by bot id=8613925597
+2026-04-01 13:33:18,297 - aiogram.event - INFO - Update id=82422448 is handled. Duration 133 ms by bot id=8613925597
+2026-04-01 13:33:19,510 - aiogram.event - INFO - Update id=82422449 is handled. Duration 142 ms by bot id=8613925597
+2026-04-01 13:33:20,677 - aiogram.event - INFO - Update id=82422450 is handled. Duration 486 ms by bot id=8613925597
+2026-04-01 13:33:36,051 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013321
+2026-04-01 13:33:36,051 - bot.handlers - INFO - Processing answer for user 444661243, question 1
+2026-04-01 13:33:36,688 - aiogram.event - INFO - Update id=82422451 is handled. Duration 636 ms by bot id=8613925597
+2026-04-01 13:33:38,457 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013322
+2026-04-01 13:33:38,457 - bot.handlers - INFO - Processing answer for user 444661243, question 2
+2026-04-01 13:33:39,103 - aiogram.event - INFO - Update id=82422452 is handled. Duration 645 ms by bot id=8613925597
+2026-04-01 13:33:41,604 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013323
+2026-04-01 13:33:41,605 - bot.handlers - INFO - Processing answer for user 444661243, question 3
+2026-04-01 13:33:42,324 - aiogram.event - INFO - Update id=82422453 is handled. Duration 719 ms by bot id=8613925597
+2026-04-01 13:33:43,220 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013324
+2026-04-01 13:33:43,220 - bot.handlers - WARNING - Poll ID mismatch for user 444661243: received 5361677528392013324, stored None
+2026-04-01 13:33:43,220 - aiogram.event - INFO - Update id=82422454 is handled. Duration 0 ms by bot id=8613925597
+2026-04-01 13:33:43,998 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013325
+2026-04-01 13:33:43,998 - bot.handlers - INFO - Processing answer for user 444661243, question 5
+2026-04-01 13:33:44,735 - aiogram.event - INFO - Update id=82422455 is handled. Duration 737 ms by bot id=8613925597
+2026-04-01 13:33:45,459 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013326
+2026-04-01 13:33:45,460 - bot.handlers - INFO - Processing answer for user 444661243, question 6
+2026-04-01 13:33:46,118 - aiogram.event - INFO - Update id=82422456 is handled. Duration 659 ms by bot id=8613925597
+2026-04-01 13:33:46,585 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013327
+2026-04-01 13:33:46,586 - bot.handlers - INFO - Processing answer for user 444661243, question 7
+2026-04-01 13:33:47,245 - aiogram.event - INFO - Update id=82422457 is handled. Duration 659 ms by bot id=8613925597
+2026-04-01 13:33:47,752 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013328
+2026-04-01 13:33:47,752 - bot.handlers - INFO - Processing answer for user 444661243, question 8
+2026-04-01 13:33:48,418 - aiogram.event - INFO - Update id=82422458 is handled. Duration 665 ms by bot id=8613925597
+2026-04-01 13:33:48,919 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013329
+2026-04-01 13:33:48,919 - bot.handlers - INFO - Processing answer for user 444661243, question 9
+2026-04-01 13:33:49,625 - aiogram.event - INFO - Update id=82422459 is handled. Duration 706 ms by bot id=8613925597
+2026-04-01 13:33:50,174 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013330
+2026-04-01 13:33:50,174 - bot.handlers - INFO - Processing answer for user 444661243, question 10
+2026-04-01 13:33:50,820 - aiogram.event - INFO - Update id=82422460 is handled. Duration 646 ms by bot id=8613925597
+2026-04-01 13:33:51,346 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013331
+2026-04-01 13:33:51,347 - bot.handlers - INFO - Processing answer for user 444661243, question 11
+2026-04-01 13:33:52,054 - aiogram.event - INFO - Update id=82422461 is handled. Duration 707 ms by bot id=8613925597
+2026-04-01 13:33:52,550 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013332
+2026-04-01 13:33:52,551 - bot.handlers - INFO - Processing answer for user 444661243, question 12
+2026-04-01 13:33:53,272 - aiogram.event - INFO - Update id=82422462 is handled. Duration 721 ms by bot id=8613925597
+2026-04-01 13:33:54,086 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013333
+2026-04-01 13:33:54,087 - bot.handlers - INFO - Processing answer for user 444661243, question 13
+2026-04-01 13:33:54,744 - aiogram.event - INFO - Update id=82422463 is handled. Duration 657 ms by bot id=8613925597
+2026-04-01 13:33:55,095 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013334
+2026-04-01 13:33:55,095 - bot.handlers - INFO - Processing answer for user 444661243, question 14
+2026-04-01 13:33:55,745 - aiogram.event - INFO - Update id=82422464 is handled. Duration 649 ms by bot id=8613925597
+2026-04-01 13:34:02,065 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013335
+2026-04-01 13:34:02,066 - bot.handlers - INFO - Processing answer for user 444661243, question 15
+2026-04-01 13:34:02,724 - aiogram.event - INFO - Update id=82422465 is handled. Duration 658 ms by bot id=8613925597
+2026-04-01 13:34:03,763 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013336
+2026-04-01 13:34:03,763 - bot.handlers - INFO - Processing answer for user 444661243, question 16
+2026-04-01 13:34:04,405 - aiogram.event - INFO - Update id=82422466 is handled. Duration 642 ms by bot id=8613925597
+2026-04-01 13:34:05,081 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013337
+2026-04-01 13:34:05,082 - bot.handlers - INFO - Processing answer for user 444661243, question 17
+2026-04-01 13:34:05,729 - aiogram.event - INFO - Update id=82422467 is handled. Duration 647 ms by bot id=8613925597
+2026-04-01 13:34:06,533 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013338
+2026-04-01 13:34:06,534 - bot.handlers - INFO - Processing answer for user 444661243, question 18
+2026-04-01 13:34:07,177 - aiogram.event - INFO - Update id=82422468 is handled. Duration 643 ms by bot id=8613925597
+2026-04-01 13:34:07,769 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013339
+2026-04-01 13:34:07,769 - bot.handlers - INFO - Processing answer for user 444661243, question 19
+2026-04-01 13:34:08,414 - aiogram.event - INFO - Update id=82422469 is handled. Duration 645 ms by bot id=8613925597
+2026-04-01 13:34:08,927 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013340
+2026-04-01 13:34:08,927 - bot.handlers - INFO - Processing answer for user 444661243, question 20
+2026-04-01 13:34:09,571 - aiogram.event - INFO - Update id=82422470 is handled. Duration 644 ms by bot id=8613925597
+2026-04-01 13:34:38,092 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013343
+2026-04-01 13:34:38,092 - bot.handlers - INFO - Processing answer for user 444661243, question 23
+2026-04-01 13:34:39,071 - aiogram.event - INFO - Update id=82422471 is handled. Duration 979 ms by bot id=8613925597
+2026-04-01 13:35:45,787 - aiogram.dispatcher - INFO - Start polling
+2026-04-01 13:35:46,114 - aiogram.dispatcher - INFO - Run polling for bot @TURKCHA_LUGAT_bot id=8613925597 - 'quiz_test'
+2026-04-01 13:35:59,581 - aiogram.event - INFO - Update id=82422472 is handled. Duration 453 ms by bot id=8613925597
+2026-04-01 13:36:00,474 - aiogram.event - INFO - Update id=82422473 is handled. Duration 168 ms by bot id=8613925597
+2026-04-01 13:36:01,595 - aiogram.event - INFO - Update id=82422474 is handled. Duration 133 ms by bot id=8613925597
+2026-04-01 13:36:02,760 - aiogram.event - INFO - Update id=82422475 is handled. Duration 414 ms by bot id=8613925597
+2026-04-01 13:36:03,650 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013351
+2026-04-01 13:36:03,650 - bot.handlers - INFO - Processing answer for user 444661243, question 0
+2026-04-01 13:36:04,287 - aiogram.event - INFO - Update id=82422476 is handled. Duration 637 ms by bot id=8613925597
+2026-04-01 13:36:05,142 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013352
+2026-04-01 13:36:05,143 - bot.handlers - INFO - Processing answer for user 444661243, question 1
+2026-04-01 13:36:05,783 - aiogram.event - INFO - Update id=82422477 is handled. Duration 641 ms by bot id=8613925597
+2026-04-01 13:36:07,208 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013353
+2026-04-01 13:36:07,208 - bot.handlers - INFO - Processing answer for user 444661243, question 2
+2026-04-01 13:36:07,857 - aiogram.event - INFO - Update id=82422478 is handled. Duration 649 ms by bot id=8613925597
+2026-04-01 13:36:08,782 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013354
+2026-04-01 13:36:08,782 - bot.handlers - INFO - Processing answer for user 444661243, question 3
+2026-04-01 13:36:09,415 - aiogram.event - INFO - Update id=82422479 is handled. Duration 633 ms by bot id=8613925597
+2026-04-01 13:36:10,162 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013355
+2026-04-01 13:36:10,163 - bot.handlers - INFO - Processing answer for user 444661243, question 4
+2026-04-01 13:36:10,860 - aiogram.event - INFO - Update id=82422480 is handled. Duration 698 ms by bot id=8613925597
+2026-04-01 13:36:11,646 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013356
+2026-04-01 13:36:11,646 - bot.handlers - INFO - Processing answer for user 444661243, question 5
+2026-04-01 13:36:12,294 - aiogram.event - INFO - Update id=82422481 is handled. Duration 648 ms by bot id=8613925597
+2026-04-01 13:36:12,904 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013357
+2026-04-01 13:36:12,904 - bot.handlers - INFO - Processing answer for user 444661243, question 6
+2026-04-01 13:36:13,537 - aiogram.event - INFO - Update id=82422482 is handled. Duration 633 ms by bot id=8613925597
+2026-04-01 13:36:14,140 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013358
+2026-04-01 13:36:14,141 - bot.handlers - INFO - Processing answer for user 444661243, question 7
+2026-04-01 13:36:14,852 - aiogram.event - INFO - Update id=82422483 is handled. Duration 712 ms by bot id=8613925597
+2026-04-01 13:36:15,318 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013359
+2026-04-01 13:36:15,319 - bot.handlers - INFO - Processing answer for user 444661243, question 8
+2026-04-01 13:36:15,983 - aiogram.event - INFO - Update id=82422484 is handled. Duration 665 ms by bot id=8613925597
+2026-04-01 13:36:16,673 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013360
+2026-04-01 13:36:16,673 - bot.handlers - INFO - Processing answer for user 444661243, question 9
+2026-04-01 13:36:17,504 - aiogram.event - INFO - Update id=82422485 is handled. Duration 831 ms by bot id=8613925597
+2026-04-01 13:36:17,965 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013361
+2026-04-01 13:36:17,966 - bot.handlers - INFO - Processing answer for user 444661243, question 10
+2026-04-01 13:36:18,610 - aiogram.event - INFO - Update id=82422486 is handled. Duration 644 ms by bot id=8613925597
+2026-04-01 13:36:19,153 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013362
+2026-04-01 13:36:19,153 - bot.handlers - INFO - Processing answer for user 444661243, question 11
+2026-04-01 13:36:19,803 - aiogram.event - INFO - Update id=82422487 is handled. Duration 649 ms by bot id=8613925597
+2026-04-01 13:36:20,307 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013363
+2026-04-01 13:36:20,307 - bot.handlers - INFO - Processing answer for user 444661243, question 12
+2026-04-01 13:36:20,951 - aiogram.event - INFO - Update id=82422488 is handled. Duration 644 ms by bot id=8613925597
+2026-04-01 13:36:21,493 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013364
+2026-04-01 13:36:21,493 - bot.handlers - INFO - Processing answer for user 444661243, question 13
+2026-04-01 13:36:22,146 - aiogram.event - INFO - Update id=82422489 is handled. Duration 653 ms by bot id=8613925597
+2026-04-01 13:36:22,703 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013365
+2026-04-01 13:36:22,703 - bot.handlers - INFO - Processing answer for user 444661243, question 14
+2026-04-01 13:36:23,370 - aiogram.event - INFO - Update id=82422490 is handled. Duration 666 ms by bot id=8613925597
+2026-04-01 13:36:23,813 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013366
+2026-04-01 13:36:23,814 - bot.handlers - INFO - Processing answer for user 444661243, question 15
+2026-04-01 13:36:24,501 - aiogram.event - INFO - Update id=82422491 is handled. Duration 687 ms by bot id=8613925597
+2026-04-01 13:36:25,017 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013367
+2026-04-01 13:36:25,018 - bot.handlers - INFO - Processing answer for user 444661243, question 16
+2026-04-01 13:36:25,668 - aiogram.event - INFO - Update id=82422492 is handled. Duration 650 ms by bot id=8613925597
+2026-04-01 13:36:26,223 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013368
+2026-04-01 13:36:26,223 - bot.handlers - INFO - Processing answer for user 444661243, question 17
+2026-04-01 13:36:26,863 - aiogram.event - INFO - Update id=82422493 is handled. Duration 640 ms by bot id=8613925597
+2026-04-01 13:36:27,314 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013369
+2026-04-01 13:36:27,315 - bot.handlers - INFO - Processing answer for user 444661243, question 18
+2026-04-01 13:36:27,957 - aiogram.event - INFO - Update id=82422494 is handled. Duration 643 ms by bot id=8613925597
+2026-04-01 13:36:28,486 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013370
+2026-04-01 13:36:28,486 - bot.handlers - INFO - Processing answer for user 444661243, question 19
+2026-04-01 13:36:29,150 - aiogram.event - INFO - Update id=82422495 is handled. Duration 664 ms by bot id=8613925597
+2026-04-01 13:36:30,351 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013371
+2026-04-01 13:36:30,351 - bot.handlers - INFO - Processing answer for user 444661243, question 20
+2026-04-01 13:36:31,103 - aiogram.event - INFO - Update id=82422496 is handled. Duration 752 ms by bot id=8613925597
+2026-04-01 13:36:32,192 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013372
+2026-04-01 13:36:32,192 - bot.handlers - INFO - Processing answer for user 444661243, question 21
+2026-04-01 13:36:32,887 - aiogram.event - INFO - Update id=82422497 is handled. Duration 695 ms by bot id=8613925597
+2026-04-01 13:36:33,399 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013373
+2026-04-01 13:36:33,399 - bot.handlers - INFO - Processing answer for user 444661243, question 22
+2026-04-01 13:36:34,048 - aiogram.event - INFO - Update id=82422498 is handled. Duration 649 ms by bot id=8613925597
+2026-04-01 13:36:34,558 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013374
+2026-04-01 13:36:34,559 - bot.handlers - INFO - Processing answer for user 444661243, question 23
+2026-04-01 13:36:35,212 - aiogram.event - INFO - Update id=82422499 is handled. Duration 653 ms by bot id=8613925597
+2026-04-01 13:36:35,742 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013375
+2026-04-01 13:36:35,742 - bot.handlers - INFO - Processing answer for user 444661243, question 24
+2026-04-01 13:36:36,377 - aiogram.event - INFO - Update id=82422500 is handled. Duration 634 ms by bot id=8613925597
+2026-04-01 13:36:36,876 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013376
+2026-04-01 13:36:36,877 - bot.handlers - INFO - Processing answer for user 444661243, question 25
+2026-04-01 13:36:37,538 - aiogram.event - INFO - Update id=82422501 is handled. Duration 662 ms by bot id=8613925597
+2026-04-01 13:36:38,063 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013377
+2026-04-01 13:36:38,064 - bot.handlers - INFO - Processing answer for user 444661243, question 26
+2026-04-01 13:36:38,705 - aiogram.event - INFO - Update id=82422502 is handled. Duration 641 ms by bot id=8613925597
+2026-04-01 13:36:39,195 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013378
+2026-04-01 13:36:39,196 - bot.handlers - INFO - Processing answer for user 444661243, question 27
+2026-04-01 13:36:39,846 - aiogram.event - INFO - Update id=82422503 is handled. Duration 651 ms by bot id=8613925597
+2026-04-01 13:36:40,369 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013379
+2026-04-01 13:36:40,369 - bot.handlers - INFO - Processing answer for user 444661243, question 28
+2026-04-01 13:36:41,022 - aiogram.event - INFO - Update id=82422504 is handled. Duration 653 ms by bot id=8613925597
+2026-04-01 13:36:41,581 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013380
+2026-04-01 13:36:41,581 - bot.handlers - INFO - Processing answer for user 444661243, question 29
+2026-04-01 13:36:42,220 - aiogram.event - INFO - Update id=82422505 is handled. Duration 639 ms by bot id=8613925597
+2026-04-01 13:36:42,681 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013381
+2026-04-01 13:36:42,681 - bot.handlers - INFO - Processing answer for user 444661243, question 30
+2026-04-01 13:36:43,328 - aiogram.event - INFO - Update id=82422506 is handled. Duration 647 ms by bot id=8613925597
+2026-04-01 13:36:43,794 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013382
+2026-04-01 13:36:43,794 - bot.handlers - INFO - Processing answer for user 444661243, question 31
+2026-04-01 13:36:44,459 - aiogram.event - INFO - Update id=82422507 is handled. Duration 664 ms by bot id=8613925597
+2026-04-01 13:36:45,249 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013383
+2026-04-01 13:36:45,249 - bot.handlers - INFO - Processing answer for user 444661243, question 32
+2026-04-01 13:36:45,923 - aiogram.event - INFO - Update id=82422508 is handled. Duration 674 ms by bot id=8613925597
+2026-04-01 13:36:46,437 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013384
+2026-04-01 13:36:46,437 - bot.handlers - INFO - Processing answer for user 444661243, question 33
+2026-04-01 13:36:47,077 - aiogram.event - INFO - Update id=82422509 is handled. Duration 639 ms by bot id=8613925597
+2026-04-01 13:36:47,659 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013385
+2026-04-01 13:36:47,659 - bot.handlers - INFO - Processing answer for user 444661243, question 34
+2026-04-01 13:36:48,306 - aiogram.event - INFO - Update id=82422510 is handled. Duration 646 ms by bot id=8613925597
+2026-04-01 13:36:48,925 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013386
+2026-04-01 13:36:48,925 - bot.handlers - INFO - Processing answer for user 444661243, question 35
+2026-04-01 13:36:49,568 - aiogram.event - INFO - Update id=82422511 is handled. Duration 643 ms by bot id=8613925597
+2026-04-01 13:36:50,041 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013387
+2026-04-01 13:36:50,041 - bot.handlers - INFO - Processing answer for user 444661243, question 36
+2026-04-01 13:36:50,681 - aiogram.event - INFO - Update id=82422512 is handled. Duration 639 ms by bot id=8613925597
+2026-04-01 13:36:51,174 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013388
+2026-04-01 13:36:51,175 - bot.handlers - INFO - Processing answer for user 444661243, question 37
+2026-04-01 13:36:51,865 - aiogram.event - INFO - Update id=82422513 is handled. Duration 690 ms by bot id=8613925597
+2026-04-01 13:36:52,752 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013389
+2026-04-01 13:36:52,752 - bot.handlers - INFO - Processing answer for user 444661243, question 38
+2026-04-01 13:36:53,451 - aiogram.event - INFO - Update id=82422514 is handled. Duration 698 ms by bot id=8613925597
+2026-04-01 13:36:53,926 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013390
+2026-04-01 13:36:53,926 - bot.handlers - INFO - Processing answer for user 444661243, question 39
+2026-04-01 13:36:54,572 - aiogram.event - INFO - Update id=82422515 is handled. Duration 646 ms by bot id=8613925597
+2026-04-01 13:36:55,334 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013391
+2026-04-01 13:36:55,335 - bot.handlers - INFO - Processing answer for user 444661243, question 40
+2026-04-01 13:36:55,971 - aiogram.event - INFO - Update id=82422516 is handled. Duration 637 ms by bot id=8613925597
+2026-04-01 13:36:56,477 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013392
+2026-04-01 13:36:56,477 - bot.handlers - INFO - Processing answer for user 444661243, question 41
+2026-04-01 13:36:57,183 - aiogram.event - INFO - Update id=82422517 is handled. Duration 705 ms by bot id=8613925597
+2026-04-01 13:36:57,622 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013393
+2026-04-01 13:36:57,622 - bot.handlers - INFO - Processing answer for user 444661243, question 42
+2026-04-01 13:36:58,345 - aiogram.event - INFO - Update id=82422518 is handled. Duration 723 ms by bot id=8613925597
+2026-04-01 13:36:58,917 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013394
+2026-04-01 13:36:58,917 - bot.handlers - INFO - Processing answer for user 444661243, question 43
+2026-04-01 13:36:59,567 - aiogram.event - INFO - Update id=82422519 is handled. Duration 649 ms by bot id=8613925597
+2026-04-01 13:37:00,098 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013395
+2026-04-01 13:37:00,098 - bot.handlers - INFO - Processing answer for user 444661243, question 44
+2026-04-01 13:37:00,803 - aiogram.event - INFO - Update id=82422520 is handled. Duration 705 ms by bot id=8613925597
+2026-04-01 13:37:01,291 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013396
+2026-04-01 13:37:01,291 - bot.handlers - INFO - Processing answer for user 444661243, question 45
+2026-04-01 13:37:01,938 - aiogram.event - INFO - Update id=82422521 is handled. Duration 647 ms by bot id=8613925597
+2026-04-01 13:37:02,504 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013397
+2026-04-01 13:37:02,505 - bot.handlers - INFO - Processing answer for user 444661243, question 46
+2026-04-01 13:37:03,190 - aiogram.event - INFO - Update id=82422522 is handled. Duration 685 ms by bot id=8613925597
+2026-04-01 13:37:03,646 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013398
+2026-04-01 13:37:03,646 - bot.handlers - INFO - Processing answer for user 444661243, question 47
+2026-04-01 13:37:04,291 - aiogram.event - INFO - Update id=82422523 is handled. Duration 645 ms by bot id=8613925597
+2026-04-01 13:37:04,927 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013399
+2026-04-01 13:37:04,928 - bot.handlers - INFO - Processing answer for user 444661243, question 48
+2026-04-01 13:37:05,575 - aiogram.event - INFO - Update id=82422524 is handled. Duration 647 ms by bot id=8613925597
+2026-04-01 13:37:06,264 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013400
+2026-04-01 13:37:06,264 - bot.handlers - INFO - Processing answer for user 444661243, question 49
+2026-04-01 13:37:06,901 - aiogram.event - INFO - Update id=82422525 is handled. Duration 637 ms by bot id=8613925597
+2026-04-01 13:37:07,414 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013401
+2026-04-01 13:37:07,415 - bot.handlers - INFO - Processing answer for user 444661243, question 50
+2026-04-01 13:37:08,099 - aiogram.event - INFO - Update id=82422526 is handled. Duration 684 ms by bot id=8613925597
+2026-04-01 13:37:08,621 - bot.handlers - INFO - Poll answer received from 444661243 for poll 5361677528392013402
+2026-04-01 13:37:08,621 - bot.handlers - INFO - Processing answer for user 444661243, question 51
+2026-04-01 13:37:09,372 - aiogram.event - INFO - Update id=82422527 is handled. Duration 751 ms by bot id=8613925597
+2026-04-01 14:33:10,763 - aiogram.dispatcher - INFO - Start polling
+2026-04-01 14:33:11,161 - aiogram.dispatcher - INFO - Run polling for bot @TURKCHA_LUGAT_bot id=8613925597 - 'quiz_test'
+2026-04-01 14:50:44,386 - aiogram.event - INFO - Update id=82422528 is handled. Duration 341 ms by bot id=8613925597
+2026-04-01 15:12:04,794 - aiogram.event - INFO - Update id=82422529 is not handled. Duration 2 ms by bot id=8613925597

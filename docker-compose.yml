@@ -5,12 +5,12 @@ services:
     image: postgres:15
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-15101995x}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-1234} # .env dagi 1234 bilan bir xil bo'lishi kerak
       POSTGRES_DB: quiz_db
       TZ: Asia/Tashkent
       PGTZ: Asia/Tashkent
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
     restart: unless-stopped
@@ -22,12 +22,13 @@ services:
              python main_flask.py"
     ports:
       - "5050:5050"
-    environment:
-      DATABASE_URL: postgresql+psycopg://postgres:15101995x@db:5432/quiz_db
-      SYNC_DATABASE_URL: postgresql+psycopg://postgres:15101995x@db:5432/quiz_db
-      TZ: Asia/Tashkent
     env_file:
       - .env
+    environment:
+      # Compose ichidagi environment .env ni "overrule" qiladi (ustidan yozadi)
+      DATABASE_URL: postgresql+psycopg://postgres:1234@db:5432/quiz_db
+      SYNC_DATABASE_URL: postgresql+psycopg://postgres:1234@db:5432/quiz_db
+      TZ: Asia/Tashkent
     depends_on:
       - db
     restart: on-failure
@@ -35,12 +36,12 @@ services:
   telegram_bot:
     build: .
     command: python main_bot.py
-    environment:
-      DATABASE_URL: postgresql+psycopg://postgres:15101995x@db:5432/quiz_db
-      SYNC_DATABASE_URL: postgresql+psycopg://postgres:15101995x@db:5432/quiz_db
-      TZ: Asia/Tashkent
     env_file:
       - .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://postgres:1234@db:5432/quiz_db
+      SYNC_DATABASE_URL: postgresql+psycopg://postgres:1234@db:5432/quiz_db
+      TZ: Asia/Tashkent
     depends_on:
       - db
       - web_admin
